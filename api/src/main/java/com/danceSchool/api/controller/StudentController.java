@@ -33,11 +33,7 @@ public class StudentController {
 
     @GetMapping("/{cpf}")
     public DataStudent getStudentsByCpf(@PathVariable String cpf){
-        try {
-            return studentRepository.findById(cpf).map(DataStudent::new).get();
-        } catch (NoSuchElementException e) {
-            return null;
-        }
+        return studentRepository.findById(cpf).map(DataStudent::new).orElseThrow(EntityNotFoundException::new);
     }
 
     @GetMapping("/name/{name}")
