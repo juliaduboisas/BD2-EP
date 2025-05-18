@@ -1,4 +1,4 @@
-package com.danceSchool.api.student;
+package com.danceSchool.api.enums;
 
 public enum Gender {
     F, // feminino

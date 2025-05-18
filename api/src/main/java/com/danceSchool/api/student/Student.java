@@ -1,5 +1,7 @@
 package com.danceSchool.api.student;
 
+import com.danceSchool.api.enums.Gender;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;

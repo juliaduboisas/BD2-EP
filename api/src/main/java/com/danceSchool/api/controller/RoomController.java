@@ -3,7 +3,6 @@ package com.danceSchool.api.controller;
 import com.danceSchool.api.room.DataRoom;
 import com.danceSchool.api.room.Room;
 import com.danceSchool.api.room.RoomRepository;
-import com.danceSchool.api.student.Student;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
