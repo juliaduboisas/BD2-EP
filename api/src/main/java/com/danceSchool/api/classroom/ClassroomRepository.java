@@ -7,4 +7,5 @@ import java.util.List;
 public interface ClassroomRepository extends JpaRepository<Classroom, Integer> {
     List<Classroom> findAllByIdModalidade(Integer idModalidade);
     List<Classroom> findAllByCpfInstrutor(String cpfInstrutor);
+    List<Classroom> findAllByNivel(String nivel);
 }

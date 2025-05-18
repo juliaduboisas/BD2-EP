@@ -50,6 +50,14 @@ public class ClassroomController {
                 .toList();
     }
 
+    @GetMapping("/level/{level}")
+    public List<DataClassroom> getClassroomByLevel(@PathVariable String level) {
+        return classroomRepository.findAllByNivel(level)
+                .stream()
+                .map(DataClassroom::new)
+                .toList();
+    }
+
     @PutMapping("/update")
     public void updateClassroom(@RequestBody DataClassroom dataClassroom) {
         Classroom classroom = classroomRepository.findById(dataClassroom.id()).orElseThrow(EntityNotFoundException::new);
