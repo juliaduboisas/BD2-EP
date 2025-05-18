@@ -35,13 +35,11 @@ public class Classroom {
     private Integer tamanho;
 
     @Enumerated(EnumType.STRING)
-    @Size(min = 1, max = 1)
-    @Column(name = "genero", length = 1)
+    @Column(name = "genero")
     private Gender genero;
 
     @Enumerated(EnumType.STRING)
-    @Size(max=20)
-    @Column(name = "nivel", length = 20)
+    @Column(name = "nivel")
     private Nivel nivel;
 
     @Column(name = "id_modalidade")

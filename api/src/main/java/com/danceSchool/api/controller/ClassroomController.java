@@ -3,6 +3,7 @@ package com.danceSchool.api.controller;
 import com.danceSchool.api.classroom.Classroom;
 import com.danceSchool.api.classroom.ClassroomRepository;
 import com.danceSchool.api.classroom.DataClassroom;
+import com.danceSchool.api.enums.Nivel;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -34,7 +35,7 @@ public class ClassroomController {
         return classroomRepository.findById(id).map(DataClassroom::new).orElseThrow(EntityNotFoundException::new);
     }
 
-    @GetMapping("/modality/{id_modalidade}")
+    @GetMapping("/modality/{idModalidade}")
     public List<DataClassroom> getClassroomByModality(@PathVariable Integer idModalidade) {
         return classroomRepository.findAllByIdModalidade(idModalidade)
                 .stream()
@@ -42,7 +43,7 @@ public class ClassroomController {
                 .toList();
     }
 
-    @GetMapping("/instructor/{instructor}")
+    @GetMapping("/instructor/{cpfInstrutor}")
     public List<DataClassroom> getClassroomByInstructor(@PathVariable String cpfInstrutor) {
         return classroomRepository.findAllByCpfInstrutor(cpfInstrutor)
                 .stream()
@@ -51,7 +52,7 @@ public class ClassroomController {
     }
 
     @GetMapping("/level/{level}")
-    public List<DataClassroom> getClassroomByLevel(@PathVariable String level) {
+    public List<DataClassroom> getClassroomByLevel(@PathVariable Nivel level) {
         return classroomRepository.findAllByNivel(level)
                 .stream()
                 .map(DataClassroom::new)
