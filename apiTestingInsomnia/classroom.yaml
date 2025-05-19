@@ -1,0 +1,212 @@
+type: collection.insomnia.rest/5.0
+name: classroom
+meta:
+  id: wrk_cb6d7c7b74504cbfbddd60698ff61840
+  created: 1747509375020
+  modified: 1747509375020
+collection:
+  - url: localhost:8080/classroom
+    name: getAll
+    meta:
+      id: req_6d41e1b2a3764c2b8507594fd114cdec
+      created: 1747538389423
+      modified: 1747538865090
+      isPrivate: false
+      sortKey: -1747538817896.5
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:8080/classroom/1
+    name: getById
+    meta:
+      id: req_b25072895f374ba69c5678c4ad994c75
+      created: 1747538459104
+      modified: 1747538866873
+      isPrivate: false
+      sortKey: -1747538796761.75
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:8080/classroom/modality/1
+    name: getByModality
+    meta:
+      id: req_2676d8eea24c48aba93095c8f61af5d5
+      created: 1747538489513
+      modified: 1747538868898
+      isPrivate: false
+      sortKey: -1747538786194.375
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:8080/classroom/instructor/11111111111
+    name: getByInstructor
+    meta:
+      id: req_b406cd8d5bf44361b7f3ac9a3452e979
+      created: 1747538552273
+      modified: 1747538870668
+      isPrivate: false
+      sortKey: -1747538780910.6875
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:8080/classroom/level/Iniciante
+    name: getByLevel
+    meta:
+      id: req_058aeaade11b41b4aaa74342bb4755d2
+      created: 1747538775627
+      modified: 1747538840085
+      isPrivate: false
+      sortKey: -1747538775627
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:8080/classroom/add
+    name: add
+    meta:
+      id: req_e5426131a4604080871da58a596425e7
+      created: 1747538860166
+      modified: 1747539375907
+      isPrivate: false
+      sortKey: -1747538860166
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"id": 46,
+        	"qtdAulasSemanais": 3,
+        	"horarioInicio": "08:00:00",
+        	"horarioFim": "14:00:00",
+        	"tamanho": 500,
+        	"genero": "N",
+        	"nivel": "Iniciante",
+        	"idModalidade": 1,
+        	"cpfInstrutor": "11111111111"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:8080/classroom/update
+    name: update
+    meta:
+      id: req_2cb088102c5a4f2194376e442d316592
+      created: 1747539171938
+      modified: 1747539729867
+      isPrivate: false
+      sortKey: -1747538775527
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"id": 46,
+        	"qtdAulasSemanais": 3,
+        	"horarioInicio": "08:00:00",
+        	"horarioFim": "14:30:00",
+        	"tamanho": 50,
+        	"genero": "N",
+        	"nivel": "Iniciante",
+        	"idModalidade": 2,
+        	"cpfInstrutor": "11111111111"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:8080/classroom/delete/46
+    name: delete
+    meta:
+      id: req_079862f9c3d744a495e3184e7f7f2fb3
+      created: 1747539222484
+      modified: 1747539760370
+      isPrivate: false
+      sortKey: -1747538775427
+    method: DELETE
+    headers:
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_66f6a97db7f768ed0609865b760e4e8b2e3bfba0
+    created: 1747509375025
+    modified: 1747509375025
+environments:
+  name: Base Environment
+  meta:
+    id: env_66f6a97db7f768ed0609865b760e4e8b2e3bfba0
+    created: 1747509375022
+    modified: 1747538421079
+    isPrivate: false

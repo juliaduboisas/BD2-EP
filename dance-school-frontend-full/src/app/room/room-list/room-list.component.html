@@ -1,0 +1,2 @@
+<h2>Room List</h2>
+<ul><li *ngFor="let r of rooms">{{ r.title }} ({{ r.numero }}) <button (click)="deleteRoom(r.numero)">Delete</button></li></ul>

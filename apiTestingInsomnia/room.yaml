@@ -1,0 +1,160 @@
+type: collection.insomnia.rest/5.0
+name: room
+meta:
+  id: wrk_857482f935a741c081c46005918be402
+  created: 1747509360399
+  modified: 1747509360399
+collection:
+  - url: localhost:8080/rooms/add
+    name: addRoom
+    meta:
+      id: req_4f2aa2b07d9c481eb8c38eb4532c0bf2
+      created: 1747513753869
+      modified: 1747524407089
+      isPrivate: false
+      sortKey: -1747513918218
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"numero" : 46,
+        	"title" : "Sala de Testes",
+        	"capacidade" : 500
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:8080/rooms
+    name: getAllRooms
+    meta:
+      id: req_46a3240ffbc5476e969235e5e863862c
+      created: 1747513769056
+      modified: 1747514479530
+      isPrivate: false
+      sortKey: -1747513918168
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:8080/rooms/46
+    name: getRoomByNumber
+    meta:
+      id: req_7bc4b558a0c345e8a699c54a5ba9892e
+      created: 1747513793249
+      modified: 1747524416891
+      isPrivate: false
+      sortKey: -1747513918143
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:8080/rooms/name/testes
+    name: getRoomByName
+    meta:
+      id: req_c07fd47c96774849835637c56a6efdae
+      created: 1747513824290
+      modified: 1747524422677
+      isPrivate: false
+      sortKey: -1747513918130.5
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:8080/rooms/update
+    name: updateRoom
+    meta:
+      id: req_66393026f95a4d9fa1a2e4d5bee01a5e
+      created: 1747513842604
+      modified: 1747524457621
+      isPrivate: false
+      sortKey: -1747513918124.25
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"numero" : 46,
+        	"title" : "Sala de Testes",
+        	"capacidade" : 50
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:8080/rooms/delete/46
+    name: deleteRoom
+    meta:
+      id: req_e009d263297f43ebbb76572da70c2052
+      created: 1747513918118
+      modified: 1747524465556
+      isPrivate: false
+      sortKey: -1747513918118
+    method: DELETE
+    headers:
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_365a5e604a155e63df6002e6d7f94d380b1f88be
+    created: 1747509360404
+    modified: 1747509360404
+environments:
+  name: Base Environment
+  meta:
+    id: env_365a5e604a155e63df6002e6d7f94d380b1f88be
+    created: 1747509360402
+    modified: 1747509360402
+    isPrivate: false
