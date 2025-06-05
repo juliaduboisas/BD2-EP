@@ -1,67 +1,66 @@
 package com.danceSchool.api.controller;
 
-import com.danceSchool.api.student.DataStudent;
-import com.danceSchool.api.student.Student;
-import com.danceSchool.api.student.StudentRepository;
+import com.danceSchool.api.aluno.DataAluno;
+import com.danceSchool.api.aluno.Aluno;
+import com.danceSchool.api.aluno.AlunoRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/students")
 public class StudentController {
     @Autowired
-    private StudentRepository studentRepository;
+    private AlunoRepository alunoRepository;
 
     @PostMapping("add")
-    public void addStudent(@RequestBody DataStudent dataStudent){
-        Student student = new Student(dataStudent);
-        studentRepository.save(student);
+    public void addStudent(@RequestBody DataAluno dataAluno){
+        Aluno aluno = new Aluno(dataAluno);
+        alunoRepository.save(aluno);
     }
 
     @GetMapping()
-    public List<DataStudent> getAllStudents(){
-        return studentRepository.findAll()
+    public List<DataAluno> getAllStudents(){
+        return alunoRepository.findAll()
                 .stream()
-                .map(DataStudent::new)
+                .map(DataAluno::new)
                 .toList();
     }
 
     @GetMapping("/{cpf}")
-    public DataStudent getStudentsByCpf(@PathVariable String cpf){
-        return studentRepository.findById(cpf).map(DataStudent::new).orElseThrow(EntityNotFoundException::new);
+    public DataAluno getStudentsByCpf(@PathVariable String cpf){
+        return alunoRepository.findById(cpf).map(DataAluno::new).orElseThrow(EntityNotFoundException::new);
     }
 
     @GetMapping("/name/{name}")
-    public List<DataStudent> getStudentByName(@PathVariable String name){
-        return studentRepository.findByNomeContainingIgnoreCase(name)
+    public List<DataAluno> getStudentByName(@PathVariable String name){
+        return alunoRepository.findByNomeContainingIgnoreCase(name)
                 .stream()
-                .map(DataStudent::new)
+                .map(DataAluno::new)
                 .toList();
     }
 
     @PutMapping("/update")
-    public void updateStudent(@RequestBody DataStudent dataStudent){
-        Optional<Student> student = studentRepository.findById(dataStudent.cpf());
+    public void updateStudent(@RequestBody DataAluno dataAluno){
+        Optional<Aluno> student = alunoRepository.findById(dataAluno.cpf());
 
         if(student.isEmpty()){
             throw new EntityNotFoundException("O aluno buscado não existe ou não foi encontrado");
         }
 
-        student.get().setNome(dataStudent.nome());
-        student.get().setGenero(dataStudent.genero());
-        student.get().setDataNasc(dataStudent.dataNasc());
-        student.get().setEmail(dataStudent.email());
+        student.get().setNome(dataAluno.nome());
+        student.get().setGenero(dataAluno.genero());
+        student.get().setDataNasc(dataAluno.dataNasc());
+        student.get().setEmail(dataAluno.email());
 
-        studentRepository.save(student.get());
+        alunoRepository.save(student.get());
     }
 
     @DeleteMapping("/delete/{cpf}")
     public void deleteStudent(@PathVariable String cpf){
-        studentRepository.deleteById(cpf);
+        alunoRepository.deleteById(cpf);
     }
 }

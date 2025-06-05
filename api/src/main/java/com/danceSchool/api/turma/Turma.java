@@ -1,4 +1,4 @@
-package com.danceSchool.api.classroom;
+package com.danceSchool.api.turma;
 
 import com.danceSchool.api.enums.Gender;
 import com.danceSchool.api.enums.Nivel;
@@ -17,7 +17,7 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @Entity
 @Table(name="turma")
-public class Classroom {
+public class Turma {
     @Id
     @Column(name="id")
     private Integer id;
@@ -49,15 +49,15 @@ public class Classroom {
     @Column(name = "cpf_instrutor", length = 11)
     private String cpfInstrutor;
 
-    public Classroom(DataClassroom dataClassroom) {
-        this.id = dataClassroom.id();
-        this.qtdAulasSemanais = dataClassroom.qtdAulasSemanais();
-        this.horarioInicio = dataClassroom.horarioInicio();
-        this.horarioFim = dataClassroom.horarioFim();
-        this.tamanho = dataClassroom.tamanho();
-        this.genero = dataClassroom.genero();
-        this.nivel = dataClassroom.nivel();
-        this.idModalidade = dataClassroom.idModalidade();
-        this.cpfInstrutor = dataClassroom.cpfInstrutor();
+    public Turma(DataTurma dataTurma) {
+        this.id = dataTurma.id();
+        this.qtdAulasSemanais = dataTurma.qtdAulasSemanais();
+        this.horarioInicio = dataTurma.horarioInicio();
+        this.horarioFim = dataTurma.horarioFim();
+        this.tamanho = dataTurma.tamanho();
+        this.genero = dataTurma.genero();
+        this.nivel = dataTurma.nivel();
+        this.idModalidade = dataTurma.idModalidade();
+        this.cpfInstrutor = dataTurma.cpfInstrutor();
     }
 }

@@ -1,4 +1,4 @@
-package com.danceSchool.api.student;
+package com.danceSchool.api.aluno;
 
 import com.danceSchool.api.enums.Gender;
 
@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Entity
 @Table(name="aluno")
-public class Student {
+public class Aluno {
     @Id
     @Size(min=11, max=11)
     @Column(name="cpf", length=11)
@@ -37,11 +37,11 @@ public class Student {
     @Column(name="email", length=100)
     private String email;
 
-    public Student(DataStudent dataStudent) {
-        this.cpf= dataStudent.cpf();
-        this.nome= dataStudent.nome();
-        this.genero= dataStudent.genero();
-        this.dataNasc= dataStudent.dataNasc();
-        this.email= dataStudent.email();
+    public Aluno(DataAluno dataAluno) {
+        this.cpf= dataAluno.cpf();
+        this.nome= dataAluno.nome();
+        this.genero= dataAluno.genero();
+        this.dataNasc= dataAluno.dataNasc();
+        this.email= dataAluno.email();
     }
 }

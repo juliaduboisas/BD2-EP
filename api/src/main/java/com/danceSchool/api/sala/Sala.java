@@ -1,4 +1,4 @@
-package com.danceSchool.api.room;
+package com.danceSchool.api.sala;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,7 +15,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name="sala")
-public class Room {
+public class Sala {
     @Id
     @Column(name="numero")
     private Integer numero;
@@ -26,9 +26,9 @@ public class Room {
     @Column(name="capacidade")
     private Integer capacidade;
 
-    public Room(DataRoom dataRoom) {
-        this.numero = dataRoom.numero();
-        this.title = dataRoom.title();
-        this.capacidade = dataRoom.capacidade();
+    public Sala(DataSala dataSala) {
+        this.numero = dataSala.numero();
+        this.title = dataSala.title();
+        this.capacidade = dataSala.capacidade();
     }
 }
