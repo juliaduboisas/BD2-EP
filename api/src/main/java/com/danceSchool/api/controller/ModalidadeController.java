@@ -4,10 +4,12 @@ import com.danceSchool.api.modalidade.DataModalidade;
 import com.danceSchool.api.modalidade.Modalidade;
 import com.danceSchool.api.modalidade.ModalidadeRepository;
 import jakarta.persistence.EntityExistsException;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -43,5 +45,21 @@ public class ModalidadeController {
                 .toList();
     }
 
+    @PutMapping("/update")
+    public void updateModalidade(@RequestBody DataModalidade dataModalidade) {
+        Optional<Modalidade> modalidade = modalidadeRepository.findById(dataModalidade.id());
 
+        if(modalidade.isEmpty()){
+            throw new EntityNotFoundException("A modalidade busca não existe ou não foi encontrada.");
+        }
+
+        modalidade.get().setNome(dataModalidade.nome());
+
+        modalidadeRepository.save(modalidade.get());
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteModalidade(@PathVariable Integer id) {
+        modalidadeRepository.deleteById(id);
+    }
 }
