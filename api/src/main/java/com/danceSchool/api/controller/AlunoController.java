@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/students")
-public class StudentController {
+public class AlunoController {
     @Autowired
     private AlunoRepository alunoRepository;
 

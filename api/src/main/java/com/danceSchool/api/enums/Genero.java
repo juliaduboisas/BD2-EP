@@ -1,6 +1,6 @@
 package com.danceSchool.api.enums;
 
-public enum Gender {
+public enum Genero {
     F, // feminino
     M, // masculino
     O, // outro

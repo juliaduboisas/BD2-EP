@@ -1,6 +1,6 @@
 package com.danceSchool.api.turma;
 
-import com.danceSchool.api.enums.Gender;
+import com.danceSchool.api.enums.Genero;
 import com.danceSchool.api.enums.Nivel;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
@@ -36,7 +36,7 @@ public class Turma {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "genero")
-    private Gender genero;
+    private Genero genero;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "nivel")

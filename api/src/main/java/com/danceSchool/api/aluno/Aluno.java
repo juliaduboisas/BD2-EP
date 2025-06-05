@@ -1,6 +1,6 @@
 package com.danceSchool.api.aluno;
 
-import com.danceSchool.api.enums.Gender;
+import com.danceSchool.api.enums.Genero;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -27,7 +27,7 @@ public class Aluno {
 
     @Enumerated(EnumType.STRING)
     @Column(name="genero", length=1)
-    private Gender genero;
+    private Genero genero;
 
     @Column(name="data_nasc")
     private LocalDate dataNasc;
