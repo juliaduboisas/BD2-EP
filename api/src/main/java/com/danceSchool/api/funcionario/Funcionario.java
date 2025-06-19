@@ -1,49 +1,46 @@
 package com.danceSchool.api.funcionario;
 
-import com.danceSchool.api.enums.Genero;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+
+import com.danceSchool.api.administrativo.*;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
-@Table(name="modalidade")
+@Table(name = "funcionario")
 public class Funcionario {
     @Id
-    @Size(min = 11, max = 11)
-    @Column(name = "cpf", length = 11)
+    @Size(max = 11)
+    @Column(name = "cpf", nullable = false, length = 11)
     private String cpf;
 
     @Size(max = 70)
-    @Column(name = "nome")
+    @Column(name = "nome", length = 70)
     private String nome;
 
-    @Size(min = 1, max = 1)
-    @Column(name = "genero", length = 1)
-    private Genero genero;
+    @Column(name = "genero", length = Integer.MAX_VALUE)
+    private String genero;
 
     @Column(name = "data_admissao")
     private LocalDate dataAdmissao;
 
-    @Column(name = "cargo")
+    @Column(name = "cargo", length = Integer.MAX_VALUE)
     private String cargo;
 
-    @Column(name = "salario")
-    private Double salario;
+    @Column(name = "salario", precision = 10, scale = 2)
+    private BigDecimal salario;
 
     @Size(max = 100)
     @Column(name = "email", length = 100)
     private String email;
 
-    @Size(min = 8, max = 8)
+    @Size(max = 8)
     @Column(name = "cep", length = 8)
     private String cep;
 
@@ -54,12 +51,8 @@ public class Funcionario {
     @Column(name = "complemento", length = 100)
     private String complemento;
 
-    // FAZER A LIGAÇÃO MANY_TO_MANY COM A TABELA ADMINISTRATIVO AQUI!!!
-    @Size(min = 11, max = 11)
-    @Column(name = "cpf_adm", length = 11)
-    private String cpfAdm;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cpf_adm")
+    private Administrativo cpfAdm;
 
-    public Funcionario(DataFuncionario dataFuncionario){
-        this(dataFuncionario.cpf(), dataFuncionario.nome(), dataFuncionario.genero(), dataFuncionario.dataAdmissao(), dataFuncionario.cargo(), dataFuncionario.salario(), dataFuncionario.email(), dataFuncionario.cep(), dataFuncionario.numero(), dataFuncionario.complemento(), dataFuncionario.cpfAdm());
-    }
 }
