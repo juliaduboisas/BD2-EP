@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.Instant;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -21,7 +22,7 @@ public class Campeonato {
     private Integer id;
 
     @Column(name = "data")
-    private Instant data;
+    private Date data;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "sala")

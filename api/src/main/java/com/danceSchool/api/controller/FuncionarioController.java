@@ -1,5 +1,6 @@
 package com.danceSchool.api.controller;
 
+import com.danceSchool.api.administrativo.AdministrativoRepository;
 import com.danceSchool.api.funcionario.DataFuncionario;
 import com.danceSchool.api.funcionario.Funcionario;
 import com.danceSchool.api.funcionario.FuncionarioRepository;
@@ -18,9 +19,12 @@ public class FuncionarioController {
     @Autowired
     FuncionarioRepository funcionarioRepository;
 
+    @Autowired
+    private AdministrativoRepository administrativoRepository;
+
     @PostMapping("/add")
     public void addFuncionario(@RequestBody DataFuncionario dataFuncionario){
-        Funcionario funcionario = new Funcionario(dataFuncionario);
+        Funcionario funcionario = new Funcionario(dataFuncionario, administrativoRepository);
         funcionarioRepository.save(funcionario);
     }
 
@@ -70,7 +74,7 @@ public class FuncionarioController {
         funcionario.get().setCep(dataFuncionario.cep());
         funcionario.get().setNumero(dataFuncionario.numero());
         funcionario.get().setComplemento(dataFuncionario.complemento());
-        funcionario.get().setCpfAdm(dataFuncionario.cpfAdm());
+        funcionario.get().setCpfAdm(administrativoRepository.getReferenceById(dataFuncionario.cpfAdm()));
         funcionarioRepository.save(funcionario.get());
     }
 

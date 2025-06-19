@@ -12,6 +12,7 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -28,7 +29,7 @@ public class TransacaoEntrada {
     private BigDecimal valor;
 
     @Column(name = "data_hora")
-    private Instant dataHora;
+    private LocalDateTime dataHora;
 
     @Size(max = 255)
     @Column(name = "descricao")
