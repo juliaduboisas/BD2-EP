@@ -1,2 +1,27 @@
 # BD2-EP
 Exercício-programa para a matéria de Banco de Dados 2 (2025) para o Bacharelado de Sistemas de Informação 
+
+## Iniciar o Back-End (API)
+A inicialização da api pode ser feita com o Maven se o banco de dados estiver configurado corretamente.\
+Primeiro vá para o diretório `api`:
+```
+cd api
+```
+Depois basta inicializar com o Wrapper Maven (permite executar sem ter o Maven instalado):
+```
+./mvnw spring-boot:run
+```
+Caso a configuração das propriedades não esteja bem feita, a inicialização acima pode não ter ocorrido com sucesso. Nesse caso, corrija o arquivo `api/src/main/resources/application.properties` de acordo com as configurações do pgAdmin.
+- A `url` depende das informações do seu servidor, verifique com botão direito no servidor, vá em Properties e depois na aba Connection. O nome final deverá ser o nome do banco de dados.
+- O `username` e `password` são as informações de login do seu banco de dados.
+
+## Iniciar o Front-End
+Para o front é necessário que tenha o node instalado. Depois basta entrar no diretório front:
+```
+cd front
+```
+Instalar as dependências do node e executar:
+```
+npm install
+npm run start
+```
