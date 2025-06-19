@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.Hibernate;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -15,7 +16,9 @@ import java.util.Objects;
 @Setter
 @Embeddable
 public class InstrutorModalidadeId implements Serializable {
+    @Serial
     private static final long serialVersionUID = 5969865838755503744L;
+
     @Size(max = 11)
     @NotNull
     @Column(name = "cpf_instrutor", nullable = false, length = 11)
