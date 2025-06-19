@@ -4,11 +4,15 @@ import com.danceSchool.api.equipamento.Equipamento;
 import com.danceSchool.api.sala.Sala;
 import com.danceSchool.api.salaEquipamentoId.SalaEquipamentoId;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "sala_equipamento")
 public class SalaEquipamento {

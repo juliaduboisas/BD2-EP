@@ -4,11 +4,15 @@ import com.danceSchool.api.instrutor.Instrutor;
 import com.danceSchool.api.instrutorModalidadeId.InstrutorModalidadeId;
 import com.danceSchool.api.modalidade.Modalidade;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "instrutor_modalidade")
 public class InstrutorModalidade {

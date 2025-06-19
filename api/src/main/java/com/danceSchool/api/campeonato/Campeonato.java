@@ -2,13 +2,17 @@ package com.danceSchool.api.campeonato;
 
 import com.danceSchool.api.sala.Sala;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.Instant;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "campeonato")
 public class Campeonato {

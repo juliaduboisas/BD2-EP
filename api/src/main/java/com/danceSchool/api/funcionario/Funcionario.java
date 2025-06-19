@@ -1,8 +1,11 @@
 package com.danceSchool.api.funcionario;
 
+import com.danceSchool.api.enums.Genero;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
@@ -12,6 +15,8 @@ import com.danceSchool.api.administrativo.*;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "funcionario")
 public class Funcionario {
@@ -25,7 +30,7 @@ public class Funcionario {
     private String nome;
 
     @Column(name = "genero", length = Integer.MAX_VALUE)
-    private String genero;
+    private Genero genero;
 
     @Column(name = "data_admissao")
     private LocalDate dataAdmissao;
@@ -55,4 +60,17 @@ public class Funcionario {
     @JoinColumn(name = "cpf_adm")
     private Administrativo cpfAdm;
 
+    public Funcionario(DataFuncionario dataFuncionario, AdministrativoRepository administrativoRepository) {
+        this.cpf = dataFuncionario.cpf();
+        this.nome = dataFuncionario.nome();
+        this.genero = dataFuncionario.genero();
+        this.dataAdmissao = dataFuncionario.dataAdmissao();
+        this.cargo = dataFuncionario.cargo();
+        this.salario = dataFuncionario.salario();
+        this.email = dataFuncionario.email();
+        this.cep = dataFuncionario.cep();
+        this.numero = dataFuncionario.numero();
+        this.complemento = dataFuncionario.complemento();
+        this.cpfAdm = administrativoRepository.getById(dataFuncionario.cpf());
+    }
 }

@@ -4,7 +4,9 @@ import com.danceSchool.api.aluno.Aluno;
 import com.danceSchool.api.campeonato.Campeonato;
 import com.danceSchool.api.transacaoEntrada.TransacaoEntrada;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
@@ -12,6 +14,8 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "inscricao")
 public class Inscricao {

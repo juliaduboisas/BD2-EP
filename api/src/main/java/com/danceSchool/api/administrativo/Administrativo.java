@@ -1,13 +1,18 @@
 package com.danceSchool.api.administrativo;
 
+import com.danceSchool.api.enums.Nivel;
 import com.danceSchool.api.funcionario.Funcionario;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "administrativo")
 public class Administrativo {
@@ -22,6 +27,6 @@ public class Administrativo {
     private Funcionario funcionario;
 
     @Column(name = "nivel_acessos")
-    private Integer nivelAcessos;
+    private Nivel nivelAcessos;
 
 }
