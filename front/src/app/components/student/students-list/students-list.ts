@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Student, StudentService } from '../../../services/student.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-students-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './students-list.html',
   styleUrls: ['./students-list.css']
 })

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Student, StudentService } from '../../../services/student.service';
 import { CommonModule } from '@angular/common';
@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-student-form',
   standalone: true,
-  imports: [CommonModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './student-form.html',
   styleUrls: ['./student-form.css']
 })

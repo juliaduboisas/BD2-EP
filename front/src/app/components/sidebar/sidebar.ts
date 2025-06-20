@@ -1,18 +1,17 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
+  standalone: true,
+  imports: [RouterModule],
   templateUrl: './sidebar.html',
   styleUrls: ['./sidebar.css']
 })
 export class Sidebar {
-  activeLink: string = 'students';
-
-  constructor(private router: Router) {}
+  activeLink: string = '';
 
   setActive(link: string) {
     this.activeLink = link;
-    this.router.navigate([link]);
   }
 }

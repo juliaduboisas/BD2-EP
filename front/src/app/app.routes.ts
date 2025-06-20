@@ -8,5 +8,6 @@ export const routes: Routes = [
   { path: 'students', component: StudentsList },
   { path: 'students/new', component: StudentForm },
   { path: 'students/edit/:cpf', component: StudentForm },
-  { path: 'students/details/:cpf', component: StudentForm }
+  { path: 'students/details/:cpf', component: StudentForm },
+  { path: '**', redirectTo: ''}
 ];
