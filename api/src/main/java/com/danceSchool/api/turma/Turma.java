@@ -19,6 +19,7 @@ import java.time.LocalTime;
 @Table(name="turma")
 public class Turma {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private Integer id;
 

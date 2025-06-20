@@ -20,6 +20,7 @@ import java.time.LocalDate;
 @Table(name = "inscricao")
 public class Inscricao {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "numero_insc", nullable = false)
     private Integer id;
 
