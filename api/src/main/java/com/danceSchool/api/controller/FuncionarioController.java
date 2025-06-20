@@ -1,9 +1,9 @@
 package com.danceSchool.api.controller;
 
-import com.danceSchool.api.administrativo.AdministrativoRepository;
-import com.danceSchool.api.funcionario.DataFuncionario;
-import com.danceSchool.api.funcionario.Funcionario;
-import com.danceSchool.api.funcionario.FuncionarioRepository;
+import com.danceSchool.api.entity.administrativo.AdministrativoRepository;
+import com.danceSchool.api.entity.funcionario.DataFuncionario;
+import com.danceSchool.api.entity.funcionario.Funcionario;
+import com.danceSchool.api.entity.funcionario.FuncionarioRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

@@ -1,8 +1,8 @@
 package com.danceSchool.api.controller;
 
-import com.danceSchool.api.modalidade.DataModalidade;
-import com.danceSchool.api.modalidade.Modalidade;
-import com.danceSchool.api.modalidade.ModalidadeRepository;
+import com.danceSchool.api.entity.modalidade.DataModalidade;
+import com.danceSchool.api.entity.modalidade.Modalidade;
+import com.danceSchool.api.entity.modalidade.ModalidadeRepository;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/modality")

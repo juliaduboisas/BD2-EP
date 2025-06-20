@@ -1,8 +1,8 @@
 package com.danceSchool.api.controller;
 
-import com.danceSchool.api.sala.DataSala;
-import com.danceSchool.api.sala.Sala;
-import com.danceSchool.api.sala.SalaRepository;
+import com.danceSchool.api.entity.sala.DataSala;
+import com.danceSchool.api.entity.sala.Sala;
+import com.danceSchool.api.entity.sala.SalaRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
