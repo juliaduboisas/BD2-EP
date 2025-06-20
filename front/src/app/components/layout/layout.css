@@ -6,7 +6,7 @@
 }
 
 .top-row {
-	height: 70px;
+	min-height: 70px;
 	display: flex;
 	align-items: center;
 	padding-left: 3rem;
@@ -34,9 +34,9 @@ app-sidebar {
 
 .content {
 	width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 	padding-top: 1rem;
-	padding-left: 5rem;
-	padding-right: 5rem;
 	font-size: 20px;
 }
 

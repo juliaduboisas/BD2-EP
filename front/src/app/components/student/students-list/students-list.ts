@@ -12,6 +12,25 @@ import { CommonModule } from "@angular/common";
 })
 export class StudentsList implements OnInit {
   students: Student[] = [];
+  page: number = 1;
+  pageSize: number = 10;
+
+  get paginatedStudents() {
+    const start = (this.page - 1) * this.pageSize;
+    return this.students.slice(start, start + this.pageSize);
+  }
+
+  nextPage() {
+    if (this.page < this.totalPages) this.page++;
+  }
+
+  prevPage() {
+    if (this.page > 1) this.page--;
+  }
+
+  get totalPages() {
+    return Math.ceil(this.students.length / this.pageSize);
+  }
 
   constructor(private studentService: StudentService, private router: Router) {}
 
