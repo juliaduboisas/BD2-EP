@@ -1,0 +1,85 @@
+/* Container do formulário */
+form {
+  max-width: 400px;
+  margin: 32px auto;
+  padding: 24px 24px 16px 24px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Labels */
+label {
+  font-weight: 500;
+  margin-bottom: 4px;
+  display: block;
+}
+
+/* Inputs e selects */
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #bdbdbd;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+  transition: border 0.2s;
+}
+
+input:focus,
+select:focus {
+  border: 1.5px solid #1976d2;
+  outline: none;
+}
+
+/* Botões */
+button,
+input[type="submit"] {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 6px;
+  background: #1976d2;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-right: 8px;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+
+button.secondary,
+.back-btn {
+  background: #757575;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background: #125ea2;
+}
+
+button.secondary:hover,
+.back-btn:hover {
+  background: #616161;
+}
+
+/* Espaçamento entre campos */
+.form-group {
+  margin-bottom: 12px;
+}
+
+/* Mensagens de erro */
+.error-message {
+  color: #d32f2f;
+  font-size: 0.95em;
+  margin-top: -6px;
+  margin-bottom: 8px;
+}

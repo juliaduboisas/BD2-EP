@@ -3,23 +3,23 @@
 		<a routerLink="/"><img src="assets/icons/icon-home.png" alt="Ícone Home" class="icon"></a>
 		<h1>/ Alunos</h1>
 	</div>
-	<button class="btn btn-new" (click)="createNewStudent()">Create New</button>
+	<button class="btn btn-new" (click)="createNewStudent()">Adicionar</button>
 	<table class="table">
 		<thead>
 			<tr>
+				<th>Ações</th>
 				<th>CPF</th>
 				<th>Nome</th>
 				<th>Gênero</th>
 				<th>Data Nasc.</th>
 				<th>Email</th>
-				<th>Ações</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr *ngFor="let student of paginatedStudents">
 				<td>
-					<button class="btn btn-info" (click)="editStudent(student.cpf)">Edit</button>
-					<button class="btn btn-danger" (click)="deleteStudent(student.cpf)">Delete</button>
+					<button class="btn btn-info" (click)="editStudent(student.cpf)">Editar</button>
+					<button class="btn btn-danger" (click)="deleteStudent(student.cpf)">Apagar</button>
 				</td>
 				<td>{{ student.cpf }}</td>
 				<td>{{ student.nome }}</td>

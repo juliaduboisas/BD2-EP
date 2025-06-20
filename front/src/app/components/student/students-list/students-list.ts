@@ -49,6 +49,10 @@ export class StudentsList implements OnInit {
     });
   }
 
+  createNewStudent(): void {
+    this.router.navigate(["/students/new"]);
+  }
+
   editStudent(cpf: string): void {
     this.router.navigate(["/students/edit", cpf]);
   }
@@ -66,9 +70,5 @@ export class StudentsList implements OnInit {
         }
       });
     }
-  }
-
-  createNewStudent(): void {
-    this.router.navigate(["/students/new"]);
   }
 }
