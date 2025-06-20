@@ -5,6 +5,19 @@
   flex-direction: column;
 }
 
+.top-row {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding-left: 3rem;
+}
+
+.top-row a {
+  font-size: 1.6rem;
+  text-decoration: none;
+  color: #002088;
+}
+
 main {
   flex: 1;
   display: flex;
@@ -19,15 +32,16 @@ app-sidebar {
   background: linear-gradient(to bottom, #002088, #0029F9);
 }
 
-.top-row {
-  height: 70px;
-  display: flex;
-  align-items: center;
-  padding-left: 3rem;
+.content{
+  width: 100%;
+  padding-top: 1rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  font-size: 20px;
+  color: #505050;
 }
 
-.top-row a {
-  font-size: 1.5rem;
-  text-decoration: none;
-  color: inherit;
+::ng-deep .content h1 {
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #505050;
 }
