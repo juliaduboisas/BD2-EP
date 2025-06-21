@@ -42,4 +42,22 @@ public class Matricula {
     @JoinColumn(name = "id_turma")
     private Turma idTurma;
 
+    public Matricula(DataMatricula data) {
+        this.id = data.id();
+        this.dataMatricula = data.dataMatricula();
+        this.valor = data.valor();
+        if (data.cpfAluno() != null) {
+            this.cpfAluno = new Aluno();
+            this.cpfAluno.setCpf(data.cpfAluno());
+        }
+        if (data.idTransacaoId() != null) {
+            this.idTransacao = new TransacaoEntrada();
+            this.idTransacao.setId(data.idTransacaoId());
+        }
+        if (data.idTurmaId() != null) {
+            this.idTurma = new Turma();
+            this.idTurma.setId(data.idTurmaId());
+        }
+    }
+
 }

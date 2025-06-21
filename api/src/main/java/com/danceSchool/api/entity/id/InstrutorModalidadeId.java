@@ -1,10 +1,11 @@
-package com.danceSchool.api.entity.instrutorModalidadeId;
+package com.danceSchool.api.entity.id;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.Hibernate;
 
@@ -14,6 +15,7 @@ import java.util.Objects;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @Embeddable
 public class InstrutorModalidadeId implements Serializable {
     @Serial
@@ -27,6 +29,11 @@ public class InstrutorModalidadeId implements Serializable {
     @NotNull
     @Column(name = "id_modalidade", nullable = false)
     private Integer idModalidade;
+
+    public InstrutorModalidadeId(String cpfInstrutor, Integer idModalidade) {
+        this.cpfInstrutor = cpfInstrutor;
+        this.idModalidade = idModalidade;
+    }
 
     @Override
     public boolean equals(Object o) {

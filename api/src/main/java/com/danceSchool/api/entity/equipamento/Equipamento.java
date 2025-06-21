@@ -23,4 +23,8 @@ public class Equipamento {
     @Column(name = "tipo")
     private String tipo;
 
+    public Equipamento(DataEquipamento data) {
+        this.id = data.id();
+        this.tipo = data.tipo();
+    }
 }
