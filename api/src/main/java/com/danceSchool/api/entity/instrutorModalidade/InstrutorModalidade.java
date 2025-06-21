@@ -1,7 +1,7 @@
 package com.danceSchool.api.entity.instrutorModalidade;
 
 import com.danceSchool.api.entity.instrutor.Instrutor;
-import com.danceSchool.api.entity.instrutorModalidadeId.InstrutorModalidadeId;
+import com.danceSchool.api.entity.id.InstrutorModalidadeId;
 import com.danceSchool.api.entity.modalidade.Modalidade;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

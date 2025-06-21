@@ -1,9 +1,8 @@
-package com.danceSchool.api.entity.instrutorModalidadeId;
+package com.danceSchool.api.entity.id;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.Hibernate;
@@ -15,14 +14,13 @@ import java.util.Objects;
 @Getter
 @Setter
 @Embeddable
-public class InstrutorModalidadeId implements Serializable {
+public class SalaModalidadeId implements Serializable {
     @Serial
-    private static final long serialVersionUID = 5969865838755503744L;
+    private static final long serialVersionUID = -7847763584011370940L;
 
-    @Size(max = 11)
     @NotNull
-    @Column(name = "cpf_instrutor", nullable = false, length = 11)
-    private String cpfInstrutor;
+    @Column(name = "id_sala", nullable = false)
+    private Integer idSala;
 
     @NotNull
     @Column(name = "id_modalidade", nullable = false)
@@ -32,14 +30,14 @@ public class InstrutorModalidadeId implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        InstrutorModalidadeId entity = (InstrutorModalidadeId) o;
-        return Objects.equals(this.cpfInstrutor, entity.cpfInstrutor) &&
+        SalaModalidadeId entity = (SalaModalidadeId) o;
+        return Objects.equals(this.idSala, entity.idSala) &&
                 Objects.equals(this.idModalidade, entity.idModalidade);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(cpfInstrutor, idModalidade);
+        return Objects.hash(idSala, idModalidade);
     }
 
 }

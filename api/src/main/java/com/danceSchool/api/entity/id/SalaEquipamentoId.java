@@ -1,4 +1,4 @@
-package com.danceSchool.api.entity.salaEquipamentoId;
+package com.danceSchool.api.entity.id;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;

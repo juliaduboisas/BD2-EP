@@ -2,7 +2,7 @@ package com.danceSchool.api.entity.salaEquipamento;
 
 import com.danceSchool.api.entity.equipamento.Equipamento;
 import com.danceSchool.api.entity.sala.Sala;
-import com.danceSchool.api.entity.salaEquipamentoId.SalaEquipamentoId;
+import com.danceSchool.api.entity.id.SalaEquipamentoId;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
