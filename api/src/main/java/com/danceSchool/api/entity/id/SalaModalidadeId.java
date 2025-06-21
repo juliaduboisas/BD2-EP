@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.Hibernate;
 
@@ -13,6 +14,7 @@ import java.util.Objects;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @Embeddable
 public class SalaModalidadeId implements Serializable {
     @Serial
@@ -25,6 +27,11 @@ public class SalaModalidadeId implements Serializable {
     @NotNull
     @Column(name = "id_modalidade", nullable = false)
     private Integer idModalidade;
+
+    public SalaModalidadeId(Integer idSala, Integer idModalidade) {
+        this.idSala = idSala;
+        this.idModalidade = idModalidade;
+    }
 
     @Override
     public boolean equals(Object o) {

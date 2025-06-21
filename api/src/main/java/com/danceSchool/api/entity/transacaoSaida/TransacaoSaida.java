@@ -39,4 +39,13 @@ public class TransacaoSaida {
     @Column(name = "id_nota_fiscal", length = Integer.MAX_VALUE)
     private String idNotaFiscal;
 
+    public TransacaoSaida(DataTransacaoSaida data) {
+        this.id = data.id();
+        this.valor = data.valor();
+        this.dataHora = data.dataHora();
+        this.descricao = data.descricao();
+        this.receptor = data.receptor();
+        this.idNotaFiscal = data.idNotaFiscal();
+    }
+
 }

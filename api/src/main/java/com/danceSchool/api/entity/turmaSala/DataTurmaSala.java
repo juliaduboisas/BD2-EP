@@ -10,7 +10,7 @@ public record DataTurmaSala(
         LocalDate fimLocacao
 ) {
 
-    DataTurmaSala(TurmaSala turmaSala) {
+    public DataTurmaSala(TurmaSala turmaSala) {
         this(
             turmaSala.getId(),
             turmaSala.getIdTurma().getId(),

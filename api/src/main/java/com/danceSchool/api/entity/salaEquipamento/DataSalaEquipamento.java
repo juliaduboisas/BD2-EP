@@ -6,7 +6,7 @@ public record DataSalaEquipamento(
         Integer quantidade
 ) {
 
-    DataSalaEquipamento(SalaEquipamento salaEquipamento) {
+    public DataSalaEquipamento(SalaEquipamento salaEquipamento) {
         this(
             salaEquipamento.getIdEquipamento().getId(),
             salaEquipamento.getIdSala().getNumero(),

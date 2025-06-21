@@ -27,6 +27,12 @@ public class Administrativo {
     private Funcionario funcionario;
 
     @Column(name = "nivel_acessos")
-    private Nivel nivelAcessos;
+    private Integer nivelAcessos;
+
+    public Administrativo(DataAdministrativo data) {
+        this.cpf = data.cpf();
+        this.funcionario = new Funcionario(data.dataFuncionario());
+        this.nivelAcessos = data.nivelAcessos();
+    }
 
 }

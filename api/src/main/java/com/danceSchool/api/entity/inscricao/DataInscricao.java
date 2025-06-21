@@ -11,7 +11,7 @@ public record DataInscricao(
         Integer idCampeonatoId, // Assuming Campeonato has an Integer ID
         String cpfAluno          // Assuming Aluno has a String CPF as ID
 ) {
-    DataInscricao(Inscricao inscricao) {
+    public DataInscricao(Inscricao inscricao) {
         this(
                 inscricao.getId(),
                 inscricao.getTaxa(),

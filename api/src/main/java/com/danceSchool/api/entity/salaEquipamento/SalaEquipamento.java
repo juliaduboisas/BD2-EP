@@ -32,4 +32,9 @@ public class SalaEquipamento {
     @Column(name = "quantidade")
     private Integer quantidade;
 
+    public SalaEquipamento(DataSalaEquipamento data) {
+        this.id = new SalaEquipamentoId(data.idEquipamento(), data.idSala());
+        this.quantidade = data.quantidade();
+    }
+
 }

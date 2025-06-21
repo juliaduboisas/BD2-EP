@@ -25,7 +25,7 @@ public class FuncionarioController {
 
     @PostMapping("/add")
     public void addFuncionario(@RequestBody DataFuncionario dataFuncionario){
-        Funcionario funcionario = new Funcionario(dataFuncionario, administrativoRepository);
+        Funcionario funcionario = new Funcionario(dataFuncionario);
         funcionarioRepository.save(funcionario);
     }
 
@@ -76,7 +76,7 @@ public class FuncionarioController {
         funcionario.get().setCep(dataFuncionario.cep());
         funcionario.get().setNumero(dataFuncionario.numero());
         funcionario.get().setComplemento(dataFuncionario.complemento());
-        funcionario.get().setCpfAdm(administrativoRepository.getReferenceById(dataFuncionario.cpfAdm()));
+        funcionario.get().setCpfAdm(administrativoRepository.getReferenceById(dataFuncionario.cpfAdm().cpf()));
         funcionarioRepository.save(funcionario.get());
     }
 

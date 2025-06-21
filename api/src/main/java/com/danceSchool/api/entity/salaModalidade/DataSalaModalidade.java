@@ -5,7 +5,7 @@ public record DataSalaModalidade(
         Integer idModalidade
 ) {
 
-    DataSalaModalidade(SalaModalidade salaModalidade) {
+    public DataSalaModalidade(SalaModalidade salaModalidade) {
         this(
             salaModalidade.getIdSala().getNumero(),
             salaModalidade.getIdModalidade().getId()

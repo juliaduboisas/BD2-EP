@@ -29,4 +29,8 @@ public class SalaModalidade {
     @JoinColumn(name = "id_modalidade", nullable = false)
     private Modalidade idModalidade;
 
+    public SalaModalidade(DataSalaModalidade data) {
+        this.id = new SalaModalidadeId(data.idSala(), data.idModalidade());
+    }
+
 }

@@ -11,7 +11,7 @@ public record DataMatricula(
         Integer idTransacaoId,
         Integer idTurmaId
 ) {
-    DataMatricula(Matricula matricula) {
+    public DataMatricula(Matricula matricula) {
         this(
                 matricula.getId(),
                 matricula.getDataMatricula(),

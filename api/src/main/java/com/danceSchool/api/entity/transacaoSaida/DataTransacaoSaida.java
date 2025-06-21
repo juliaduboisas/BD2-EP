@@ -12,7 +12,7 @@ public record DataTransacaoSaida(
         String idNotaFiscal
 ) {
 
-    DataTransacaoSaida(TransacaoSaida transacaoSaida) {
+    public DataTransacaoSaida(TransacaoSaida transacaoSaida) {
         this(
             transacaoSaida.getId(),
             transacaoSaida.getValor(),

@@ -32,4 +32,9 @@ public class InstrutorModalidade {
     @Column(name = "nivel_capacitacao")
     private Integer nivelCapacitacao;
 
+    public InstrutorModalidade(DataInstrutorModalidade data) {
+        this.id = new InstrutorModalidadeId(data.cpfInstrutor(), data.idModalidade());
+        this.nivelCapacitacao = data.nivelCapacitacao();
+    }
+
 }

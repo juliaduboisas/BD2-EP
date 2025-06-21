@@ -6,7 +6,7 @@ public record DataPagamento(
         String cpfFuncionario     // Represents the CPF from Funcionario
 ) {
 
-    DataPagamento(Pagamento pagamento) {
+    public DataPagamento(Pagamento pagamento) {
         this(
                 pagamento.getId(),
                 pagamento.getTransacaoSaida().getId(),

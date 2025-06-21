@@ -28,4 +28,16 @@ public class Pagamento {
     @JoinColumn(name = "cpf_func")
     private Funcionario cpfFunc;
 
+    public Pagamento(DataPagamento data) {
+        this.id = data.id();
+        if (data.idTransacaoSaida() != null) {
+            this.transacaoSaida = new TransacaoSaida();
+            this.transacaoSaida.setId(data.idTransacaoSaida());
+        }
+        if (data.cpfFuncionario() != null) {
+            this.cpfFunc = new Funcionario();
+            this.cpfFunc.setCpf(data.cpfFuncionario());
+        }
+    }
+
 }

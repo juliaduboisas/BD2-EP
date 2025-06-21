@@ -41,4 +41,17 @@ public class Campeonato {
     @Column(name = "status", length = Integer.MAX_VALUE)
     private String status;
 
+    public Campeonato(DataCampeonato data) {
+        this.id = data.id();
+        this.data = data.data();
+        if (data.salaId() != null) {
+            this.sala = new Sala();
+            this.sala.setNumero(data.salaId());
+        }
+        this.categoria = data.categoria();
+        this.premiacao = data.premiacao();
+        this.valorPremiacao = data.valorPremiacao();
+        this.status = data.status();
+    }
+
 }

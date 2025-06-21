@@ -60,7 +60,7 @@ public class Funcionario {
     @JoinColumn(name = "cpf_adm")
     private Administrativo cpfAdm;
 
-    public Funcionario(DataFuncionario dataFuncionario, AdministrativoRepository administrativoRepository) {
+    public Funcionario(DataFuncionario dataFuncionario) {
         this.cpf = dataFuncionario.cpf();
         this.nome = dataFuncionario.nome();
         this.genero = dataFuncionario.genero();
@@ -71,6 +71,6 @@ public class Funcionario {
         this.cep = dataFuncionario.cep();
         this.numero = dataFuncionario.numero();
         this.complemento = dataFuncionario.complemento();
-        this.cpfAdm = administrativoRepository.getById(dataFuncionario.cpf());
+        this.cpfAdm = new Administrativo(dataFuncionario.cpfAdm());
     }
 }

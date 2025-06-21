@@ -5,7 +5,7 @@ public record DataInstrutorModalidade(
         Integer idModalidade,
         Integer nivelCapacitacao
 ) {
-    DataInstrutorModalidade(InstrutorModalidade instrutorModalidade) {
+    public DataInstrutorModalidade(InstrutorModalidade instrutorModalidade) {
         this(
                 instrutorModalidade.getCpfInstrutor().getCpf(),
                 instrutorModalidade.getIdModalidade().getId(),
