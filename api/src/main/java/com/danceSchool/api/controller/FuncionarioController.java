@@ -1,5 +1,6 @@
 package com.danceSchool.api.controller;
 
+import com.danceSchool.api.entity.administrativo.Administrativo;
 import com.danceSchool.api.entity.administrativo.AdministrativoRepository;
 import com.danceSchool.api.entity.funcionario.DataFuncionario;
 import com.danceSchool.api.entity.funcionario.Funcionario;
@@ -51,7 +52,8 @@ public class FuncionarioController {
 
     @GetMapping("/by-adm/{cpfAdm}")
     public List<DataFuncionario> getFuncionarioByCpfAdm(@PathVariable String cpfAdm){
-        return funcionarioRepository.findByCpfAdm(cpfAdm)
+        Administrativo admin = administrativoRepository.getById(cpfAdm);
+        return funcionarioRepository.findByCpfAdm(admin)
                 .stream()
                 .map(DataFuncionario::new)
                 .toList();
