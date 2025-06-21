@@ -179,3 +179,10 @@ ALTER TABLE "sala_modalidade" ADD FOREIGN KEY ("id_modalidade") REFERENCES "moda
 ALTER TABLE "instrutor_modalidade" ADD FOREIGN KEY ("cpf_instrutor") REFERENCES "instrutor" ("cpf");
 
 ALTER TABLE "instrutor_modalidade" ADD FOREIGN KEY ("id_modalidade") REFERENCES "modalidade" ("id");
+
+
+CREATE INDEX idx_aluno_email ON aluno(email);
+
+CREATE INDEX idx_matricula_cpf_aluno ON matricula(cpf_aluno);
+
+CREATE INDEX idx_funcionario_data_admissao ON funcionario(data_admissao);
