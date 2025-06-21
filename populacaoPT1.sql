@@ -359,7 +359,7 @@ INSERT INTO transacao_entrada (valor, data_hora, descricao, emissor, id_nota_fis
 (210.00, '2025-02-25 15:00:00', 'Pagamento matrícula', 'Aluno', 'NF047'),
 (210.00, '2025-02-26 16:00:00', 'Pagamento matrícula', 'Aluno', 'NF048'),
 (210.00, '2025-02-27 17:00:00', 'Pagamento matrícula', 'Aluno', 'NF049'),
-(210.00, '2025-02-28 18:00:00', 'Pagamento matrícula', 'Aluno', 'NF050');
+(210.00, '2025-02-28 18:00:00', 'Pagamento matrícula', 'Aluno', 'NF050'),
  (45.00, '2025-01-10 09:00:00', 'Inscrição Campeonato 1', 'PIX', 'NF001'),
   (48.00, '2025-01-10 09:30:00', 'Inscrição Campeonato 1', 'PIX', 'NF002'),
   (50.00, '2025-01-11 10:00:00', 'Inscrição Campeonato 1', 'Cartão', 'NF003'),
@@ -688,3 +688,71 @@ VALUES
   (36.00, '2025-10-17',28, 5, '20000000017'),
   (31.00, '2025-10-18',29, 5, '20000000018'),
   (45.00, '2025-10-19',30, 5, '20000000019');
+
+  -- Pagamento de salário para todos os funcionários
+
+-- 1. Inserir transações de saída (um para cada funcionário)
+INSERT INTO transacao_saida (valor, data_hora, descricao, receptor, id_nota_fiscal)
+SELECT salario, '2025-02-28 09:00:00', 'Pagamento de salário', cpf, 'SAL202502'
+FROM funcionario;
+
+-- 2. Inserir pagamentos vinculando cada transação ao funcionário correspondente
+-- Considerando que os IDs das transações são gerados sequencialmente a partir do último ID existente,
+-- e que não há outras inserções em transacao_saida, podemos usar a ordem de inserção.
+-- Para garantir, utilize um comando que relacione o último id gerado para cada funcionário:
+
+INSERT INTO pagamentos (id_transacao, cpf_func)
+SELECT ts.id, f.cpf
+FROM funcionario f
+JOIN transacao_saida ts
+  ON ts.receptor = f.cpf
+  AND ts.data_hora = '2025-02-28 09:00:00'
+  AND ts.descricao = 'Pagamento de salário';
+
+
+INSERT INTO instrutor_modalidade (cpf_instrutor, id_modalidade, nivel_capacitacao) VALUES
+('11111111111', 1, 2),   -- Ballet
+('22222222222', 2, 1),   -- Dança de Salão
+('33333333333', 3, 3),   -- Dança Contemporânea
+('44444444444', 4, 1),   -- Street Dance
+('55555555555', 5, 2),   -- Dança do Ventre
+('10000000021', 6, 3),   -- Jazz
+('10000000022', 7, 1),   -- Sapateado
+('10000000023', 8, 2),   -- Flamenco
+('10000000024', 9, 3),   -- Forró
+('10000000025', 10, 2),  -- Samba de Gafieira
+('10000000026', 11, 1),  -- Zouk
+('10000000027', 12, 3),  -- Bolero
+('10000000028', 13, 2),  -- Tango
+('10000000029', 14, 1),  -- Salsa
+('10000000030', 15, 2),  -- Merengue
+('10000000031', 16, 3),  -- Kizomba
+('10000000032', 17, 1),  -- Lambada
+('10000000033', 18, 2),  -- Rockabilly
+('10000000034', 19, 3),  -- Swing
+('10000000035', 20, 1),  -- Lindy Hop
+('10000000036', 21, 2),  -- Popping
+('10000000037', 22, 3),  -- Locking
+('10000000038', 23, 1),  -- Waacking
+('10000000039', 24, 2),  -- Vogue
+('10000000040', 25, 3),  -- House Dance
+('10000000041', 26, 1),  -- Dancehall
+('10000000042', 27, 2),  -- Afrobeat
+('10000000043', 28, 3),  -- Jazz Funk
+('10000000044', 29, 1),  -- Heels
+('10000000045', 30, 2),  -- Stiletto
+('10000000046', 31, 3),  -- Pole Dance
+('10000000047', 32, 1),  -- Dança Afro
+('10000000048', 33, 2),  -- Dança Cigana
+('10000000049', 34, 3),  -- Dança Indiana
+('10000000050', 35, 1),  -- Dança Irlandesa
+('10000000051', 36, 2),  -- Dança Havaiana
+('10000000052', 37, 3),  -- Dança Gaúcha
+('10000000053', 38, 1),  -- Dança Grega
+('10000000054', 39, 2),  -- Dança Italiana
+('10000000055', 40, 3),  -- Dança Russa
+('10000000056', 41, 1),  -- Dança Ucraniana
+('10000000057', 42, 2),  -- Dança Polonesa
+('10000000058', 43, 3),  -- Dança Alemã
+('10000000059', 44, 1),  -- Dança Francesa
+('10000000060', 45, 2);  -- Dança Árabe
