@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface FuncionarioRepository extends JpaRepository<Funcionario, String> {
     List<Funcionario> findByNomeContaining(String nome);
-    List<Funcionario> (String cpfAdm);
+    List<Funcionario> findByCpfAdmCpf(String cpfAdm);
 }
