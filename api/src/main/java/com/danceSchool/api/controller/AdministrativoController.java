@@ -3,7 +3,6 @@ package com.danceSchool.api.controller;
 import com.danceSchool.api.entity.administrativo.Administrativo;
 import com.danceSchool.api.entity.administrativo.AdministrativoRepository;
 import com.danceSchool.api.entity.administrativo.DataAdministrativo;
-import com.danceSchool.api.enums.Nivel;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

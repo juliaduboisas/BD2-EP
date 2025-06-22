@@ -1,6 +1,5 @@
 package com.danceSchool.api.entity.administrativo;
 
-import com.danceSchool.api.enums.Nivel;
 import com.danceSchool.api.entity.funcionario.Funcionario;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;

@@ -1,0 +1,42 @@
+<div class="container">
+	<div class="page-header">
+		<a routerLink="/"><img src="assets/icons/icon-home.png" alt="Ícone Home" class="icon"></a>
+		<h1>/ Alunos</h1>
+	</div>
+	<button class="btn btn-new" (click)="createNewStudent()">Adicionar</button>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Ações</th>
+				<th>CPF</th>
+				<th>Nome</th>
+				<th>Gênero</th>
+				<th>Data Nasc.</th>
+				<th>Email</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let student of paginatedStudents">
+				<td>
+					<button class="btn btn-info" (click)="editStudent(student.cpf)">Editar</button>
+					<button class="btn btn-danger" (click)="deleteStudent(student.cpf)">Apagar</button>
+				</td>
+				<td>{{ student.cpf }}</td>
+				<td>{{ student.nome }}</td>
+				<td>{{ student.genero }}</td>
+				<td>{{ student.dataNasc | date:'dd/MM/yyyy' }}</td>
+				<td>{{ student.email }}</td>
+			</tr>
+			<tr *ngIf="students.length === 0">
+				<td colspan="6">Nenhum aluno encontrado.</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="pagination-controls" *ngIf="totalPages > 1" style="margin-top: 10px;">
+		<button (click)="prevPage()" [disabled]="page === 1">Previous</button>
+		<span *ngFor="let p of [].constructor(totalPages); let i = index">
+		<button (click)="page = i + 1" [disabled]="page === (i + 1)" [ngClass]="{'active': page === (i + 1)}">{{ i + 1 }}</button>
+		</span>
+		<button (click)="nextPage()" [disabled]="page === totalPages">Next</button>
+	</div>
+</div>

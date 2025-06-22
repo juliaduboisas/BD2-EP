@@ -1,6 +1,5 @@
 package com.danceSchool.api.entity.funcionario;
 
-import com.danceSchool.api.entity.administrativo.Administrativo;
 import com.danceSchool.api.entity.administrativo.DataAdministrativo;
 import com.danceSchool.api.enums.Genero;
 

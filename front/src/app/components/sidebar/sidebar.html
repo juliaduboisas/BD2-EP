@@ -1,0 +1,22 @@
+<div class="nav">
+	<li class="nav-item">
+		<a routerLink="/students" [class.active]="activeLink === 'students'" (click)="setActive('students')">
+		<img src="assets/icons/icon-aluno.png" alt="Ícone Aluno" class="nav-icon"> Alunos
+		</a>
+	</li>
+	<li class="nav-item">
+		<a routerLink="/modalities" [class.active]="activeLink === 'modalities'" (click)="setActive('modalities')">
+		<img src="assets/icons/icon-modalidade.png" alt="Ícone Modalidade" class="nav-icon"> Modalidades
+		</a>
+	</li>
+	<li class="nav-item">
+		<a routerLink="/rooms" [class.active]="activeLink === 'rooms'" (click)="setActive('rooms')">
+		<img src="assets/icons/icon-sala.png" alt="Ícone Sala" class="nav-icon"> Salas
+		</a>
+	</li>
+	<li class="nav-item">
+		<a routerLink="/classes" [class.active]="activeLink === 'classes'" (click)="setActive('classes')">
+		<img src="assets/icons/icon-turma.png" alt="Ícone Turma" class="nav-icon"> Turmas
+		</a>
+	</li>
+</div>
