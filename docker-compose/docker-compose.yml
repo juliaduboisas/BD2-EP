@@ -1,11 +1,30 @@
 services:
-  postgres:
+  web_app:
+    image: dimidimii/dance-school-webapp:v1.0
+    container_name: dance_school_frontend
+    ports:
+      - "4200:4200"
+    depends_on:
+      - web_api
+  web_api:
+    image: dimidimii/dance-school-api:v1.0
+    container_name: dance_school_api
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres_db:5432/danceSchool
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: root
+    depends_on:
+      - postgres_db # This refers to the service name 'postgres_db' below
+
+  postgres_db:
     image: postgres:17-alpine
     container_name: postgres_db
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: root
-      POSTGRES_DB: hotelaria
+      POSTGRES_DB: danceSchool
     ports:
       - "5431:5432"
     volumes:
