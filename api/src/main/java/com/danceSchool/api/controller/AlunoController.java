@@ -1,8 +1,8 @@
 package com.danceSchool.api.controller;
 
-import com.danceSchool.api.aluno.DataAluno;
-import com.danceSchool.api.aluno.Aluno;
-import com.danceSchool.api.aluno.AlunoRepository;
+import com.danceSchool.api.entity.aluno.DataAluno;
+import com.danceSchool.api.entity.aluno.Aluno;
+import com.danceSchool.api.entity.aluno.AlunoRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

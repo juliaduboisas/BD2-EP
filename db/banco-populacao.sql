@@ -359,7 +359,37 @@ INSERT INTO transacao_entrada (valor, data_hora, descricao, emissor, id_nota_fis
 (210.00, '2025-02-25 15:00:00', 'Pagamento matrícula', 'Aluno', 'NF047'),
 (210.00, '2025-02-26 16:00:00', 'Pagamento matrícula', 'Aluno', 'NF048'),
 (210.00, '2025-02-27 17:00:00', 'Pagamento matrícula', 'Aluno', 'NF049'),
-(210.00, '2025-02-28 18:00:00', 'Pagamento matrícula', 'Aluno', 'NF050');
+(210.00, '2025-02-28 18:00:00', 'Pagamento matrícula', 'Aluno', 'NF050'),
+ (45.00, '2025-01-10 09:00:00', 'Inscrição Campeonato 1', 'PIX', 'NF001'),
+  (48.00, '2025-01-10 09:30:00', 'Inscrição Campeonato 1', 'PIX', 'NF002'),
+  (50.00, '2025-01-11 10:00:00', 'Inscrição Campeonato 1', 'Cartão', 'NF003'),
+  (30.00, '2025-01-12 11:00:00', 'Inscrição Campeonato 1', 'Dinheiro', 'NF004'),
+  (20.00, '2025-01-13 11:30:00', 'Inscrição Campeonato 1', 'PIX', 'NF005'),
+  (25.00, '2025-03-01 09:15:00', 'Inscrição Campeonato 2', 'PIX', 'NF006'),
+  (44.00, '2025-03-01 10:00:00', 'Inscrição Campeonato 2', 'Cartão', 'NF007'),
+  (35.00, '2025-03-02 11:45:00', 'Inscrição Campeonato 2', 'PIX', 'NF008'),
+  (50.00, '2025-03-03 13:00:00', 'Inscrição Campeonato 2', 'PIX', 'NF009'),
+  (47.00, '2025-03-04 14:30:00', 'Inscrição Campeonato 2', 'Dinheiro', 'NF010'),
+  (32.00, '2025-05-01 08:00:00', 'Inscrição Campeonato 3', 'Cartão', 'NF051'),
+  (36.00, '2025-05-01 09:30:00', 'Inscrição Campeonato 3', 'PIX', 'NF052'),
+  (50.00, '2025-05-01 10:45:00', 'Inscrição Campeonato 3', 'Cartão', 'NF053'),
+  (28.00, '2025-05-02 12:00:00', 'Inscrição Campeonato 3', 'PIX', 'NF054'),
+  (45.00, '2025-05-03 14:20:00', 'Inscrição Campeonato 3', 'Dinheiro', 'NF055'),
+  (22.00, '2025-07-20 09:00:00', 'Inscrição Campeonato 4', 'PIX', 'NF056'),
+  (39.00, '2025-07-21 10:30:00', 'Inscrição Campeonato 4', 'Cartão', 'NF057'),
+  (30.00, '2025-07-22 11:50:00', 'Inscrição Campeonato 4', 'PIX', 'NF058'),
+  (46.00, '2025-07-23 13:10:00', 'Inscrição Campeonato 4', 'PIX', 'NF059'),
+  (50.00, '2025-07-24 15:00:00', 'Inscrição Campeonato 4', 'Dinheiro', 'NF060'),
+  (40.00, '2025-10-10 08:10:00', 'Inscrição Campeonato 5', 'PIX', 'NF061'),
+  (38.00, '2025-10-11 09:40:00', 'Inscrição Campeonato 5', 'PIX', 'NF062'),
+  (29.00, '2025-10-12 11:00:00', 'Inscrição Campeonato 5', 'Cartão', 'NF063'),
+  (33.00, '2025-10-13 13:30:00', 'Inscrição Campeonato 5', 'Dinheiro', 'NF064'),
+  (49.00, '2025-10-14 16:00:00', 'Inscrição Campeonato 5', 'Cartão', 'NF065'),
+  (27.00, '2025-10-15 10:15:00', 'Inscrição Campeonato 5', 'PIX', 'NF066'),
+  (23.00, '2025-10-16 12:20:00', 'Inscrição Campeonato 5', 'PIX', 'NF067'),
+  (36.00, '2025-10-17 14:10:00', 'Inscrição Campeonato 5', 'PIX', 'NF068'),
+  (31.00, '2025-10-18 15:00:00', 'Inscrição Campeonato 5', 'Cartão', 'NF069'),
+  (45.00, '2025-10-19 17:45:00', 'Inscrição Campeonato 5', 'PIX', 'NF070');
 
 -- 8. Turma (associando modalidades e instrutores)
 INSERT INTO turma (qtd_aulas_semanais, horario_inicio, horario_fim, tamanho, genero, nivel, id_modalidade, cpf_instrutor) VALUES
@@ -613,3 +643,116 @@ INSERT INTO sala_modalidade (id_sala, id_modalidade) VALUES
 (44, 45),  -- Dança Francesa
 (45, 46),  -- Dança Árabe
 (1, 47);   -- Dança Chinesa (Estúdio Principal, genérica)
+
+
+INSERT INTO "campeonato"
+  ("data",  "id", "sala", "categoria", "premiacao", "valor_premiacao", "status")
+VALUES
+  ('2025-02-15 10:00:00', '1', 1, 'Solo',   'Troféu',   100.0, 'Agendado'),
+  ('2025-04-20 14:00:00', '2', 2, 'Dueto',  'Medalha',  150.0, 'Agendado'),
+  ('2025-06-30 09:00:00', '3', 3, 'Grupo',  'Dinheiro', 200.0, 'Agendado'),
+  ('2025-09-05 16:00:00', '4', 1, 'Solo',   'Voucher',  120.0, 'Agendado'),
+  ('2025-11-18 13:00:00', '5', 2, 'Grupo',  'Dinheiro', 250.0, 'Agendado');
+
+
+  INSERT INTO "inscricao"
+  ("taxa", "data_insc", "id_transacao", "id_campeonato", "cpf_aluno")
+VALUES
+  (45.00, '2025-01-10', 1, 1, '20000000040'),
+  (48.00, '2025-01-10', 2, 1, '20000000001'),
+  (50.00, '2025-01-11', 3, 1, '20000000002'),
+  (30.00, '2025-01-12', 4, 1, '20000000003'),
+  (20.00, '2025-01-13', 5, 1, '20000000004'),
+  (25.00, '2025-03-01', 6, 2, '20000000005'),
+  (44.00, '2025-03-01', 7, 2, '20000000006'),
+  (35.00, '2025-03-02', 8, 2, '20000000007'),
+  (50.00, '2025-03-03', 9, 2, '20000000008'),
+  (47.00, '2025-03-04',10, 2, '20000000009'),
+  (32.00, '2025-05-01',11, 3, '20000000010'),
+  (36.00, '2025-05-01',12, 3, '20000000011'),
+  (50.00, '2025-05-01',13, 3, '20000000012'),
+  (28.00, '2025-05-02',14, 3, '20000000013'),
+  (45.00, '2025-05-03',15, 3, '20000000014'),
+  (22.00, '2025-07-20',16, 4, '10000000001'),
+  (39.00, '2025-07-21',17, 4, '10000000002'),
+  (30.00, '2025-07-22',18, 4, '10000000003'),
+  (46.00, '2025-07-23',19, 4, '10000000004'),
+  (50.00, '2025-07-24',20, 4, '10000000005'),
+  (40.00, '2025-10-10',21, 5, '10000000006'),
+  (38.00, '2025-10-11',22, 5, '10000000007'),
+  (29.00, '2025-10-12',23, 5, '10000000008'),
+  (33.00, '2025-10-13',24, 5, '10000000009'),
+  (49.00, '2025-10-14',25, 5, '10000000010'),
+  (27.00, '2025-10-15',26, 5, '20000000015'),
+  (23.00, '2025-10-16',27, 5, '20000000016'),
+  (36.00, '2025-10-17',28, 5, '20000000017'),
+  (31.00, '2025-10-18',29, 5, '20000000018'),
+  (45.00, '2025-10-19',30, 5, '20000000019');
+
+  -- Pagamento de salário para todos os funcionários
+
+-- 1. Inserir transações de saída (um para cada funcionário)
+INSERT INTO transacao_saida (valor, data_hora, descricao, receptor, id_nota_fiscal)
+SELECT salario, '2025-02-28 09:00:00', 'Pagamento de salário', cpf, 'SAL202502'
+FROM funcionario;
+
+-- 2. Inserir pagamentos vinculando cada transação ao funcionário correspondente
+-- Considerando que os IDs das transações são gerados sequencialmente a partir do último ID existente,
+-- e que não há outras inserções em transacao_saida, podemos usar a ordem de inserção.
+-- Para garantir, utilize um comando que relacione o último id gerado para cada funcionário:
+
+INSERT INTO pagamentos (id_transacao, cpf_func)
+SELECT ts.id, f.cpf
+FROM funcionario f
+JOIN transacao_saida ts
+  ON ts.receptor = f.cpf
+  AND ts.data_hora = '2025-02-28 09:00:00'
+  AND ts.descricao = 'Pagamento de salário';
+
+
+INSERT INTO instrutor_modalidade (cpf_instrutor, id_modalidade, nivel_capacitacao) VALUES
+('11111111111', 1, 2),   -- Ballet
+('22222222222', 2, 1),   -- Dança de Salão
+('33333333333', 3, 3),   -- Dança Contemporânea
+('44444444444', 4, 1),   -- Street Dance
+('55555555555', 5, 2),   -- Dança do Ventre
+('10000000021', 6, 3),   -- Jazz
+('10000000022', 7, 1),   -- Sapateado
+('10000000023', 8, 2),   -- Flamenco
+('10000000024', 9, 3),   -- Forró
+('10000000025', 10, 2),  -- Samba de Gafieira
+('10000000026', 11, 1),  -- Zouk
+('10000000027', 12, 3),  -- Bolero
+('10000000028', 13, 2),  -- Tango
+('10000000029', 14, 1),  -- Salsa
+('10000000030', 15, 2),  -- Merengue
+('10000000031', 16, 3),  -- Kizomba
+('10000000032', 17, 1),  -- Lambada
+('10000000033', 18, 2),  -- Rockabilly
+('10000000034', 19, 3),  -- Swing
+('10000000035', 20, 1),  -- Lindy Hop
+('10000000036', 21, 2),  -- Popping
+('10000000037', 22, 3),  -- Locking
+('10000000038', 23, 1),  -- Waacking
+('10000000039', 24, 2),  -- Vogue
+('10000000040', 25, 3),  -- House Dance
+('10000000041', 26, 1),  -- Dancehall
+('10000000042', 27, 2),  -- Afrobeat
+('10000000043', 28, 3),  -- Jazz Funk
+('10000000044', 29, 1),  -- Heels
+('10000000045', 30, 2),  -- Stiletto
+('10000000046', 31, 3),  -- Pole Dance
+('10000000047', 32, 1),  -- Dança Afro
+('10000000048', 33, 2),  -- Dança Cigana
+('10000000049', 34, 3),  -- Dança Indiana
+('10000000050', 35, 1),  -- Dança Irlandesa
+('10000000051', 36, 2),  -- Dança Havaiana
+('10000000052', 37, 3),  -- Dança Gaúcha
+('10000000053', 38, 1),  -- Dança Grega
+('10000000054', 39, 2),  -- Dança Italiana
+('10000000055', 40, 3),  -- Dança Russa
+('10000000056', 41, 1),  -- Dança Ucraniana
+('10000000057', 42, 2),  -- Dança Polonesa
+('10000000058', 43, 3),  -- Dança Alemã
+('10000000059', 44, 1),  -- Dança Francesa
+('10000000060', 45, 2);  -- Dança Árabe

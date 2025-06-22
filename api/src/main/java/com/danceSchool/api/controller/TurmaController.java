@@ -1,8 +1,8 @@
 package com.danceSchool.api.controller;
 
-import com.danceSchool.api.turma.Turma;
-import com.danceSchool.api.turma.TurmaRepository;
-import com.danceSchool.api.turma.DataTurma;
+import com.danceSchool.api.entity.turma.Turma;
+import com.danceSchool.api.entity.turma.TurmaRepository;
+import com.danceSchool.api.entity.turma.DataTurma;
 import com.danceSchool.api.enums.Nivel;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
