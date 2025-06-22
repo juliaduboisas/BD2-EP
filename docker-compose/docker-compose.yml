@@ -1,0 +1,12 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: hotelaria
+    ports:
+      - "5431:5432"
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
