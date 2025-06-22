@@ -1,6 +1,5 @@
 package com.danceSchool.api.controller;
 
-import com.danceSchool.api.entity.administrativo.Administrativo;
 import com.danceSchool.api.entity.administrativo.AdministrativoRepository;
 import com.danceSchool.api.entity.funcionario.DataFuncionario;
 import com.danceSchool.api.entity.funcionario.Funcionario;
