@@ -52,8 +52,7 @@ public class FuncionarioController {
 
     @GetMapping("/by-adm/{cpfAdm}")
     public List<DataFuncionario> getFuncionarioByCpfAdm(@PathVariable String cpfAdm){
-        Administrativo admin = administrativoRepository.getById(cpfAdm);
-        return funcionarioRepository.findByCpfAdm(admin)
+        return funcionarioRepository.findByCpfAdmCpf(cpfAdm)
                 .stream()
                 .map(DataFuncionario::new)
                 .toList();
