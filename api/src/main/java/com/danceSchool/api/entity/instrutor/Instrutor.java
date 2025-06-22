@@ -25,4 +25,12 @@ public class Instrutor {
     @JoinColumn(name = "cpf", nullable = false)
     private Funcionario funcionario;
 
+    public Instrutor(DataInstrutor data) {
+        this.cpf = data.cpf();
+        if (data.funcionarioCpf() != null) {
+            this.funcionario = new Funcionario();
+            this.funcionario.setCpf(data.funcionarioCpf());
+        }
+    }
+
 }

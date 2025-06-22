@@ -42,4 +42,22 @@ public class Inscricao {
     @JoinColumn(name = "cpf_aluno")
     private Aluno cpfAluno;
 
+    public Inscricao(DataInscricao data) {
+        this.id = data.id();
+        this.taxa = data.taxa();
+        this.dataInsc = data.dataInsc();
+        if (data.idTransacaoId() != null) {
+            this.idTransacao = new TransacaoEntrada();
+            this.idTransacao.setId(data.idTransacaoId());
+        }
+        if (data.idCampeonatoId() != null) {
+            this.idCampeonato = new Campeonato();
+            this.idCampeonato.setId(data.idCampeonatoId());
+        }
+        if (data.cpfAluno() != null) {
+            this.cpfAluno = new Aluno();
+            this.cpfAluno.setCpf(data.cpfAluno());
+        }
+    }
+
 }

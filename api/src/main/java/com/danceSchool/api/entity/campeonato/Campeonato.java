@@ -1,6 +1,7 @@
 package com.danceSchool.api.entity.campeonato;
 
 import com.danceSchool.api.entity.sala.Sala;
+import com.danceSchool.api.enums.Nivel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,7 +30,7 @@ public class Campeonato {
     private Sala sala;
 
     @Column(name = "categoria", length = Integer.MAX_VALUE)
-    private String categoria;
+    private Nivel categoria;
 
     @Column(name = "premiacao", length = Integer.MAX_VALUE)
     private String premiacao;
@@ -39,5 +40,18 @@ public class Campeonato {
 
     @Column(name = "status", length = Integer.MAX_VALUE)
     private String status;
+
+    public Campeonato(DataCampeonato data) {
+        this.id = data.id();
+        this.data = data.data();
+        if (data.salaId() != null) {
+            this.sala = new Sala();
+            this.sala.setNumero(data.salaId());
+        }
+        this.categoria = data.categoria();
+        this.premiacao = data.premiacao();
+        this.valorPremiacao = data.valorPremiacao();
+        this.status = data.status();
+    }
 
 }

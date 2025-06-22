@@ -1,5 +1,6 @@
 package com.danceSchool.api.entity.funcionario;
 
+import com.danceSchool.api.entity.administrativo.Administrativo;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

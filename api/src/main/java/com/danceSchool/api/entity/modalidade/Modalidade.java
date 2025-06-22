@@ -23,7 +23,7 @@ public class Modalidade {
     @Column(name="nome", length = 100)
     private String nome;
 
-    Modalidade(DataModalidade dataModalidade) {
+    public Modalidade(DataModalidade dataModalidade) {
         this(dataModalidade.id(), dataModalidade.nome());
     }
 }

@@ -36,4 +36,18 @@ public class TurmaSala {
     @Column(name = "fim_locacao")
     private LocalDate fimLocacao;
 
+    public TurmaSala(DataTurmaSala data) {
+        this.id = data.id();
+        if (data.idTurmaId() != null) {
+            this.idTurma = new Turma();
+            this.idTurma.setId(data.idTurmaId());
+        }
+        if (data.idSalaId() != null) {
+            this.idSala = new Sala();
+            this.idSala.setNumero(data.idSalaId());
+        }
+        this.inicioLocacao = data.inicioLocacao();
+        this.fimLocacao = data.fimLocacao();
+    }
+
 }

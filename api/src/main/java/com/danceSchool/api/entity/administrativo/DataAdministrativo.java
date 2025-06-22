@@ -6,14 +6,13 @@ import com.danceSchool.api.entity.funcionario.DataFuncionario;
 public record DataAdministrativo(
         String cpf,
         DataFuncionario dataFuncionario, // If you need the Funcionario's CPF
-        Nivel nivelAcessos
+        Integer nivelAcessos
 ) {
-    public static DataAdministrativo fromEntity(Administrativo administrativo) {
-        if (administrativo == null) return null;
-        return new DataAdministrativo(
-                administrativo.getCpf(),
-                new DataFuncionario(administrativo.getFuncionario()),
-                administrativo.getNivelAcessos()
+    public DataAdministrativo(Administrativo administrativo) {
+        this(
+            administrativo.getCpf(),
+            new DataFuncionario(administrativo.getFuncionario()),
+            administrativo.getNivelAcessos()
         );
     }
 }
