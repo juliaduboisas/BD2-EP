@@ -31,7 +31,6 @@ select {
   font-size: 1rem;
   margin-bottom: 8px;
   box-sizing: border-box;
-  transition: border 0.2s;
 }
 
 input:focus,
@@ -43,17 +42,10 @@ select:focus {
 /* Botões */
 button,
 input[type="submit"] {
-  padding: 8px 20px;
   border: none;
-  border-radius: 6px;
+  padding: 8px 20px;
   background: #1976d2;
   color: #fff;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-right: 8px;
-  margin-top: 8px;
-  transition: background 0.2s;
 }
 
 button.secondary,
@@ -64,11 +56,6 @@ button.secondary,
 button:hover,
 input[type="submit"]:hover {
   background: #125ea2;
-}
-
-button.secondary:hover,
-.back-btn:hover {
-  background: #616161;
 }
 
 /* Espaçamento entre campos */
