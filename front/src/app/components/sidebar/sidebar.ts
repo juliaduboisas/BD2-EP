@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, NavigationEnd, RouterModule } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,7 +12,16 @@ import { RouterModule } from '@angular/router';
 export class Sidebar {
   activeLink: string = '';
 
-  setActive(link: string) {
-    this.activeLink = link;
+  constructor(private router: Router) {
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        const url = event.urlAfterRedirects || event.url;
+        if (url.startsWith('/students')) this.activeLink = 'students';
+        else if (url.startsWith('/modalities')) this.activeLink = 'modalities';
+        else if (url.startsWith('/rooms')) this.activeLink = 'rooms';
+        else if (url.startsWith('/classes')) this.activeLink = 'classes';
+        else this.activeLink = '';
+      });
   }
 }
