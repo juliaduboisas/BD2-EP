@@ -1,13 +1,26 @@
 package com.danceSchool.api.entity.aluno;
 
+import java.time.LocalDate;
+import java.util.Set;
+
+import com.danceSchool.api.entity.inscricao.Inscricao;
+import com.danceSchool.api.entity.matricula.Matricula;
 import com.danceSchool.api.enums.Genero;
 
-import jakarta.persistence.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
-import lombok.*;
-
-import java.time.LocalDate;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter
@@ -36,6 +49,12 @@ public class Aluno {
     @Size(max=100)
     @Column(name="email", length=100)
     private String email;
+
+    @OneToMany(mappedBy = "cpfAluno", cascade = CascadeType.ALL, orphanRemoval = true) 
+    private Set<Inscricao> inscricoes;
+
+    @OneToMany(mappedBy = "cpfAluno", cascade = CascadeType.ALL, orphanRemoval = true) 
+    private Set<Matricula> matriculas;
 
     public Aluno(DataAluno dataAluno) {
         this.cpf= dataAluno.cpf();

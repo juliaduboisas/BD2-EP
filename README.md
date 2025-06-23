@@ -35,8 +35,8 @@ Na posta docker-compose, há 2 deploys: 1 usando o nginx e não. Na nuvem, somen
 Buildar a imagem localmente e pushar para o docker hub:
 
 ```
-$ docker build -t dimidimii/danceSchool-webapp:vX.X .
-$ docker push dimidimii/dance-school-webapp:vX.X
+docker build -t dimidimii/dance-school-webapp:vX.X .
+docker push dimidimii/dance-school-webapp:vX.X
 ```
 
 Para o back é a mesma coisa. Alterações do banco são mais complexas.

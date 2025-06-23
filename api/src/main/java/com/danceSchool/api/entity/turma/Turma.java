@@ -1,15 +1,27 @@
 package com.danceSchool.api.entity.turma;
 
+import java.time.LocalTime;
+import java.util.Set;
+
+import com.danceSchool.api.entity.matricula.Matricula;
 import com.danceSchool.api.enums.Genero;
 import com.danceSchool.api.enums.Nivel;
-import jakarta.persistence.*;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.time.LocalTime;
 
 @Getter
 @Setter
@@ -49,6 +61,10 @@ public class Turma {
     @Size(min=11, max=11)
     @Column(name = "cpf_instrutor", length = 11)
     private String cpfInstrutor;
+
+    @OneToMany(mappedBy = "idTurma", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Matricula> matriculas;
+
 
     public Turma(DataTurma dataTurma) {
         this.id = dataTurma.id();

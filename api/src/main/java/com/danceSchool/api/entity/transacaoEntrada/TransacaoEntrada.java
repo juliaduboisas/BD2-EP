@@ -1,14 +1,25 @@
 package com.danceSchool.api.entity.transacaoEntrada;
 
-import jakarta.persistence.*;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.Set;
+
+import com.danceSchool.api.entity.inscricao.Inscricao;
+import com.danceSchool.api.entity.matricula.Matricula;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -38,6 +49,12 @@ public class TransacaoEntrada {
 
     @Column(name = "id_nota_fiscal", length = Integer.MAX_VALUE)
     private String idNotaFiscal;
+
+    @OneToMany(mappedBy = "idTransacao", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Inscricao> inscricoes;
+
+    @OneToMany(mappedBy = "idTransacao", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Matricula> matriculas;
 
     public TransacaoEntrada(DataTransacaoEntrada data) {
         this.id = data.id();

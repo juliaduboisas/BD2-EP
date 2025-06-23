@@ -1,16 +1,26 @@
 package com.danceSchool.api.entity.inscricao;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
 import com.danceSchool.api.entity.aluno.Aluno;
 import com.danceSchool.api.entity.campeonato.Campeonato;
 import com.danceSchool.api.entity.transacaoEntrada.TransacaoEntrada;
-import jakarta.persistence.*;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.math.BigDecimal;
-import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -30,15 +40,15 @@ public class Inscricao {
     @Column(name = "data_insc")
     private LocalDate dataInsc;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "id_transacao")
     private TransacaoEntrada idTransacao;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "id_campeonato")
     private Campeonato idCampeonato;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "cpf_aluno")
     private Aluno cpfAluno;
 

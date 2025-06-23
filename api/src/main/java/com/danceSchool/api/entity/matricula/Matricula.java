@@ -1,16 +1,26 @@
 package com.danceSchool.api.entity.matricula;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
 import com.danceSchool.api.entity.aluno.Aluno;
 import com.danceSchool.api.entity.transacaoEntrada.TransacaoEntrada;
 import com.danceSchool.api.entity.turma.Turma;
-import jakarta.persistence.*;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.math.BigDecimal;
-import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -30,15 +40,15 @@ public class Matricula {
     @Column(name = "valor", precision = 10, scale = 2)
     private BigDecimal valor;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "cpf_aluno")
     private Aluno cpfAluno;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "id_transacao")
     private TransacaoEntrada idTransacao;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "id_turma")
     private Turma idTurma;
 
