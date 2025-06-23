@@ -30,15 +30,15 @@ public class Matricula {
     @Column(name = "valor", precision = 10, scale = 2)
     private BigDecimal valor;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "cpf_aluno")
     private Aluno cpfAluno;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_transacao")
     private TransacaoEntrada idTransacao;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_turma")
     private Turma idTurma;
 

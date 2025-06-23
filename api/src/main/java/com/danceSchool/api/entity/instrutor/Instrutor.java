@@ -21,7 +21,7 @@ public class Instrutor {
     private String cpf;
 
     @MapsId
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "cpf", nullable = false)
     private Funcionario funcionario;
 
