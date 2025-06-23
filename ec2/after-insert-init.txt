@@ -1,0 +1,9 @@
+# --- Run Docker Compose ---
+# Navigate to the application directory and start the services in detached mode.
+echo "--- Running Docker Compose ---"
+cd "$APP_DIR" || { echo "Failed to change directory to $APP_DIR"; exit 1; }
+sudo docker compose up -d
+echo "--- Docker Compose services started ---"
+
+echo "--- User data script execution complete ---"
+

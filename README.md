@@ -25,3 +25,29 @@ Instalar as dependências do node e executar:
 npm install
 npm run start
 ```
+
+## Docker Compose
+
+Na posta docker-compose, há 2 deploys: 1 usando o nginx e não. Na nuvem, somente conseguimos postar usando nginx.
+
+## Deploy no Docker Hub
+
+Buildar a imagem localmente e pushar para o docker hub:
+
+```
+$ docker build -t dimidimii/danceSchool-webapp:vX.X .
+$ docker push dimidimii/dance-school-webapp:vX.X
+```
+
+Para o back é a mesma coisa. Alterações do banco são mais complexas.
+
+## Atualizar na AWS
+
+- Conectar na instância
+- Atualizar a versão da imagem
+- ir para a pasta em que está o docker-compose
+
+```
+docker compose down
+docker compose up -d
+```
