@@ -1,6 +1,6 @@
 services:
   frontend_builder:
-    image: dimidimii/dance-school-webapp:v1.0
+    image: dimidimii/dance-school-webapp:v1.1
     container_name: dance_school_frontend_builder
     command: sh -c "npm install && ng build --configuration production --output-path=/app/dist/frontend" # This builds to /app/dist/frontend
     volumes:
@@ -29,7 +29,7 @@ services:
           memory: 64M
 
   web_api:
-    image: dimidimii/dance-school-api:v1.0
+    image: dimidimii/dance-school-api:v1.1
     container_name: dance_school_api
     ports:
       - "8080:8080"
