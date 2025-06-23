@@ -3,8 +3,7 @@ CREATE TABLE "aluno" (
   "nome" varchar(70),
   "genero" char,
   "data_nasc" date,
-  "email" varchar(100),
-  "status" boolean
+  "email" varchar(100)
 );
 
 CREATE TABLE "matricula" (
@@ -13,8 +12,7 @@ CREATE TABLE "matricula" (
   "valor" decimal(10,2),
   "cpf_aluno" varchar(11),
   "id_transacao" integer,
-  "id_turma" integer,
-  "status" boolean
+  "id_turma" integer
 );
 
 CREATE TABLE "turma" (
@@ -88,8 +86,7 @@ CREATE TABLE "funcionario" (
   "cep" varchar(8),
   "numero" int,
   "complemento" varchar(100),
-  "cpf_adm" varchar(11),
-  "status" boolean
+  "cpf_adm" varchar(11)
 );
 
 CREATE TABLE "instrutor" (
