@@ -1,9 +1,17 @@
-<div class="container card"> <div class="page-header">
-    <a routerLink="/"><img src="assets/icons/icon-home-dark.png" alt="Ícone Home" class="icon"></a>
-    <a routerLink="/students"><h1>/ Alunos</h1></a>
-    <h1>/ {{ isEditMode ? 'Editar Aluno' : 'Adicionar Novo Aluno' }}</h1>
-  </div>
-  <button type="button" class="btn btn-secondary mb-3" (click)="cancel()">Voltar</button> <form [formGroup]="studentForm" (ngSubmit)="onSubmit()" class="form-card"> <div class="form-group">
+<div class="container card">
+	<div class="page-header">
+		<a routerLink="/">
+			<img src="assets/icons/icon-home.png" alt="Ícone Home" class="icon">
+		</a>
+		<a routerLink="/students"><h1>/ Alunos</h1></a>
+		<h1>/ {{ isEditMode ? 'Editar Aluno' : 'Adicionar Novo Aluno' }}</h1>
+	</div>
+    <div class="form-actions-top">
+        <button type="button" class="btn btn-secondary" (click)="cancel()">Voltar</button>
+    </div>
+
+	<form [formGroup]="studentForm" (ngSubmit)="onSubmit()" class="form-card">
+        <div class="form-group">
             <label for="cpf" class="form-label">CPF:</label>
             <input type="text" id="cpf" formControlName="cpf" class="form-control" [class.is-invalid]="studentForm.get('cpf')?.invalid && studentForm.get('cpf')?.touched">
             <div *ngIf="studentForm.get('cpf')?.invalid && studentForm.get('cpf')?.touched" class="error-message">
@@ -44,6 +52,8 @@
                 Email é obrigatório e deve ser um email válido.
             </div>
         </div>
-        <button type="submit" class="btn btn-success" [disabled]="studentForm.invalid">{{ isEditMode ? 'Salvar Alterações' : 'Adicionar' }}</button>
+        <button type="submit" class="btn btn-success" [disabled]="studentForm.invalid">
+          {{ isEditMode ? 'Salvar Alterações' : 'Adicionar' }}
+        </button>
 	</form>
 </div>

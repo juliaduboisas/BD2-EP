@@ -56,3 +56,21 @@
   background-color: #3b5998; /* Hover color matches active */
   color: #ffffff;
 }
+
+/* ... (previous styles) ... */
+
+.sidebar-logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  filter: brightness(0) invert(1); /* Make logo white for dark background */
+}
+
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  filter: brightness(0) invert(1); /* Make icons white for dark background */
+}
+
+/* ... (rest of the sidebar.css) ... */

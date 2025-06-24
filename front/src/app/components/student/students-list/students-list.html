@@ -1,32 +1,30 @@
-<div class="container card"> <div class="page-header">
-    <a routerLink="/"><img src="assets/icons/icon-home-dark.png" alt="Ícone Home" class="icon"></a>
+<div class="container card">
+  <div class="page-header">
+    <a routerLink="/">
+      <img src="assets/icons/icon-home.png" alt="Ícone Home" class="icon">
+    </a>
     <h1>/ Alunos</h1>
   </div>
   <button class="btn btn-new" (click)="createNewStudent()">Adicionar</button>
-  <div class="table-responsive"> <table class="table">
+  <div class="table-responsive">
+    <table class="table">
       <thead>
         <tr>
-          <th>Ações</th>
           <th>CPF</th>
           <th>Nome</th>
-          <th>Gênero</th>
-          <th>Data Nasc.</th>
-          <th>Email</th>
+          <th>Ações</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let student of paginatedStudents">
-          <td class="action-buttons"> <button class="btn btn-info" (click)="editStudent(student.cpf)">Editar</button>
-            <button class="btn btn-danger" (click)="deleteStudent(student.cpf)">Apagar</button>
-          </td>
           <td>{{ student.cpf }}</td>
           <td>{{ student.nome }}</td>
-          <td>{{ student.genero }}</td>
-          <td>{{ student.dataNasc | date:'dd/MM/yyyy' }}</td>
-          <td>{{ student.email }}</td>
+          <td class="action-buttons">
+            <button class="btn btn-primary" (click)="viewStudentDetails(student.cpf)">Ver Detalhes</button>
+            <button class="btn btn-danger" (click)="deleteStudent(student.cpf)">Remover</button> </td>
         </tr>
         <tr *ngIf="students.length === 0">
-          <td colspan="6">Nenhum aluno encontrado.</td>
+          <td colspan="3">Nenhum aluno encontrado.</td>
         </tr>
       </tbody>
     </table>

@@ -6,7 +6,7 @@ import { Home } from './components/home/home';
 export const routes: Routes = [
   {
     path: '',
-    component: Home, // Home component directly rendered inside layout's router-outlet
+    component: Home,
   },
   { path: 'students', component: StudentsList },
   { path: 'students/new', component: StudentForm },

@@ -93,33 +93,57 @@ app-sidebar {
   background-color: #f9fbfd; /* Very light background for content */
 }
 
+/* ... (previous styles) ... */
+
 /* Common styles for page headers within content */
-/* Keep these from previous iteration, ensure they look good with new design */
 ::ng-deep .page-header {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #e0e0e0; /* Lighter border */
+  border-bottom: 1px solid #e0e0e0;
   padding-bottom: 0.8rem;
-  margin-bottom: 24px; /* More margin */
+  margin-bottom: 24px;
 }
 
-::ng-deep .page-header a {
+::ng-deep .page-header a { /* Target the anchor wrapping the icon and text */
   text-decoration: none;
   display: flex;
   align-items: center;
-  color: #555; /* Slightly lighter text for path */
+  color: #555;
 }
 
 ::ng-deep .page-header .icon {
-  width: 24px; /* Smaller icons in page header */
+  width: 24px;
   height: 24px;
   margin-right: 0.6rem;
-  filter: none; /* Assuming colored icons */
+  filter: brightness(0); /* Make icons black for light background */
 }
 
 ::ng-deep .page-header h1 {
   color: #333;
   margin-right: 0.5rem;
-  font-size: 1.8rem; /* Slightly smaller heading */
+  font-size: 1.8rem;
   font-weight: 600;
 }
+
+/* ... (previous styles) ... */
+
+.top-bar-left a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.top-bar-logo {
+  width: 32px;
+  height: 32px;
+  margin-right: 12px;
+  filter: brightness(0); /* Make logo black for light background */
+}
+
+.icon-button .icon {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0); /* Make icons black for light background */
+}
+
+/* ... (rest of the layout.css) ... */

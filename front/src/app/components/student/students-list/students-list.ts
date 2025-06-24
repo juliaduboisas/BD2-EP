@@ -2,6 +2,9 @@ import { Component, OnInit } from "@angular/core";
 import { Student, StudentService } from "../../../services/student.service";
 import { Router, RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
+import { MatDialog } from '@angular/material/dialog';
+import { StudentDetailsModal } from '../student-details-modal/student-details-modal';
+import { ConfirmDialogComponent } from '../../confirm-dialog/confirm-dialog'; // Import ConfirmDialogComponent
 
 @Component({
   selector: "app-students-list",
@@ -32,7 +35,11 @@ export class StudentsList implements OnInit {
     return Math.ceil(this.students.length / this.pageSize);
   }
 
-  constructor(private studentService: StudentService, private router: Router) {}
+  constructor(
+    private studentService: StudentService,
+    private router: Router,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.loadStudents();
@@ -53,22 +60,39 @@ export class StudentsList implements OnInit {
     this.router.navigate(["/students/new"]);
   }
 
-  editStudent(cpf: string): void {
-    this.router.navigate(["/students/edit", cpf]);
+  viewStudentDetails(cpf: string): void {
+    this.studentService.getStudentByCpf(cpf).subscribe({
+      next: (student) => {
+        this.dialog.open(StudentDetailsModal, {
+          data: { student: student },
+          width: '500px'
+        });
+      },
+      error: (error) => {
+        console.error('Erro ao carregar detalhes do aluno:', error);
+        alert('Erro ao carregar detalhes do aluno.');
+      }
+    });
   }
 
   deleteStudent(cpf: string): void {
-    if (confirm("Tem certeza que deseja excluir este aluno?")) {
-      this.studentService.deleteStudent(cpf).subscribe({
-        next: () => {
-          alert("Aluno excluído com sucesso!");
-          this.loadStudents();
-        },
-        error: (error) => {
-          console.error("Erro ao excluir aluno:", error);
-          alert("Erro ao excluir aluno. Verifique o console.");
-        }
-      });
-    }
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: { message: 'Tem certeza que deseja remover este aluno?' }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) { // If user clicked 'Confirmar'
+        this.studentService.deleteStudent(cpf).subscribe({
+          next: () => {
+            alert('Aluno removido com sucesso!');
+            this.loadStudents(); // Reload the list
+          },
+          error: (error) => {
+            console.error('Erro ao remover aluno:', error);
+            alert('Erro ao remover aluno. Verifique o console.');
+          }
+        });
+      }
+    });
   }
 }

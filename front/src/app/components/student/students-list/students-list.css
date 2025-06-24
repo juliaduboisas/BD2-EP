@@ -1,43 +1,76 @@
 /* Container padding and responsive adjustments */
 .container {
-  padding: 24px; /* Default card padding */
+  padding: 24px;
 }
 
 @media (max-width: 768px) {
   .table-responsive {
-    overflow-x: auto; /* Enable horizontal scrolling for tables on small screens */
+    overflow-x: auto;
   }
 }
 
 /* Table styles */
 .table {
   width: 100%;
-  border-collapse: collapse; /* Collapse borders for cleaner look */
+  border-collapse: separate; /* Use separate to allow border-spacing */
+  border-spacing: 0; /* Remove default spacing */
   margin-bottom: 20px;
   font-size: 0.95rem;
+  border: 1px solid #e0e0e0; /* Outer border for the entire table */
+  border-radius: 8px; /* Rounded corners for the table */
+  overflow: hidden; /* Ensures rounded corners apply correctly */
 }
 
 .table th,
 .table td {
-  padding: 14px 18px; /* More padding */
-  border-bottom: 1px solid #f0f0f0; /* Lighter border */
+  padding: 16px 20px; /* Increased padding for cells */
   text-align: left;
 }
 
-.table th {
+/* Table header styles */
+.table thead {
   background-color: #f8fafd; /* Lighter header background */
+}
+
+.table th {
   font-weight: 600;
   color: #555;
   text-transform: uppercase;
   font-size: 0.85rem;
+  border-bottom: 1px solid #e0e0e0; /* Separator for header */
+}
+
+/* Specific styling for the first and last header cells for rounded corners */
+.table th:first-child {
+  border-top-left-radius: 8px;
+}
+
+.table th:last-child {
+  border-top-right-radius: 8px;
+}
+
+/* Table body row styles */
+.table tbody tr {
+  background-color: #ffffff; /* Default background for rows */
+  transition: background-color 0.2s ease;
 }
 
 .table tbody tr:nth-child(even) {
-  background-color: #fbfbfb; /* Zebra striping */
+  background-color: #fcfcfc; /* Subtle zebra striping */
 }
 
 .table tbody tr:hover {
-  background-color: #e6f7ff; /* Lighter hover effect */
+  background-color: #e6f7ff; /* Lighter blue hover effect */
+}
+
+.table td {
+  border-bottom: 1px solid #f0f0f0; /* Light border between rows */
+  color: #444; /* Slightly softer text color */
+}
+
+/* Remove bottom border from the last row's cells */
+.table tbody tr:last-child td {
+  border-bottom: none;
 }
 
 /* Empty row */
@@ -52,37 +85,44 @@
 .btn {
   border: none;
   padding: 10px 20px;
-  margin-right: 8px; /* More spacing between buttons */
-  border-radius: 5px; /* Slightly more rounded */
+  margin-right: 12px; /* Increased spacing between buttons */
+  border-radius: 5px;
   font-weight: 500;
   transition: background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .btn-new {
-  background-color: #28a745; /* Green for new */
+  background-color: #007bff; /* Primary blue for new button */
   color: #fff;
-  margin-bottom: 20px;
+  margin-bottom: 24px; /* More margin below new button */
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2); /* More prominent shadow */
 }
 
 .btn-new:hover {
-  background-color: #218838;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background-color: #0056b3;
+  box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
+}
+
+.action-buttons {
+  white-space: nowrap; /* Prevent buttons from wrapping */
 }
 
 .action-buttons .btn {
-  padding: 8px 15px; /* Smaller action buttons */
+  padding: 8px 15px;
   font-size: 0.9rem;
+  margin-right: 5px; /* Tighter spacing for action buttons */
+  box-shadow: none; /* Remove individual button shadow here */
+  border: 1px solid transparent; /* Add transparent border to prevent layout shift on hover */
 }
 
 .btn-info {
-  background-color: #007bff; /* Blue for info/edit */
+  background-color: #17a2b8; /* Info blue for edit */
   color: #fff;
 }
 
 .btn-info:hover {
-  background-color: #0056b3;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background-color: #138496;
 }
 
 .btn-danger {
@@ -92,7 +132,6 @@
 
 .btn-danger:hover {
   background-color: #c82333;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Pagination controls */
@@ -100,33 +139,45 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px; /* More spacing */
+  gap: 8px;
+  margin-top: 24px; /* More margin */
 }
 
 .pagination-controls .pagination-btn {
-  min-width: 40px; /* Slightly larger buttons */
-  padding: 8px 12px;
+  min-width: 40px;
+  height: 40px; /* Fixed height for consistent look */
+  padding: 0 12px; /* Adjust padding */
   background-color: #ffffff;
   color: #007bff;
-  border: 1px solid #007bff;
+  border: 1px solid #e0e0e0; /* Lighter border for pagination buttons */
   border-radius: 5px;
   font-weight: 500;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
-  box-shadow: none; /* Remove individual button shadow */
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+  display: inline-flex; /* Use flex for centering text */
+  justify-content: center;
+  align-items: center;
 }
 
-.pagination-controls .pagination-btn:not([disabled]):hover,
+.pagination-controls .pagination-btn:not([disabled]):hover {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.2);
+}
+
 .pagination-controls .pagination-btn.active {
   background-color: #007bff;
   color: #fff;
   border-color: #007bff;
-  box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2); /* Subtle shadow on active/hover */
+  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.2);
+  font-weight: 600; /* Bold for active page */
 }
 
 .pagination-controls .pagination-btn[disabled] {
-  background-color: #e9ecef; /* Lighter disabled background */
-  color: #adb5bd; /* Lighter disabled text */
-  border-color: #e9ecef;
+  background-color: #f8f8f8; /* Even lighter disabled background */
+  color: #b0b0b0; /* Softer disabled text */
+  border-color: #ebebeb;
   cursor: not-allowed;
   box-shadow: none;
 }

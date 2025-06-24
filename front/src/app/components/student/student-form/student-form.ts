@@ -32,12 +32,19 @@ export class StudentForm implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      this.currentCpf = params.get('cpf');
-      if (this.currentCpf) {
+    this.route.url.subscribe(urlSegments => {
+      const path = urlSegments.map(s => s.path).join('/');
+      if (path.includes('new')) {
+        this.isEditMode = false;
+      } else if (path.includes('edit')) {
         this.isEditMode = true;
-        this.studentForm.get('cpf')?.disable();
-        this.loadStudentData(this.currentCpf);
+        this.studentForm.get('cpf')?.disable(); // CPF should be disabled when editing
+        this.currentCpf = this.route.snapshot.paramMap.get('cpf');
+        if (this.currentCpf) {
+          this.loadStudentData(this.currentCpf);
+        }
+      } else { // Default to new if no specific mode is detected, or handle other paths if any
+        this.isEditMode = false;
       }
     });
   }
@@ -56,7 +63,7 @@ export class StudentForm implements OnInit {
 
   onSubmit(): void {
     if (this.studentForm.valid) {
-      const studentData: Student = this.studentForm.getRawValue();
+      const studentData: Student = this.studentForm.getRawValue(); // Use getRawValue to get disabled fields
       if (this.isEditMode) {
         this.studentService.updateStudent(studentData).subscribe({
           next: () => {

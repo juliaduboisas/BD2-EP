@@ -1,0 +1,40 @@
+.student-details-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px; /* Space between detail items */
+  padding: 10px 0;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-item .label {
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 4px;
+  font-size: 0.9em;
+  text-transform: uppercase;
+}
+
+.detail-item .value {
+  font-size: 1.1em;
+  color: #333;
+}
+
+/* Optional: Adjust dialog title/actions if needed */
+mat-dialog-title {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+mat-dialog-actions {
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+  margin-top: 20px;
+}

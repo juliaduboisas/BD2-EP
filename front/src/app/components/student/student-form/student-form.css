@@ -1,6 +1,6 @@
 /* Container for the form to apply card styling */
 .container {
-  padding: 24px; /* Default card padding */
+  padding: 24px;
 }
 
 /* Form specific card styling if needed */
@@ -8,16 +8,21 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
-    padding: 0; /* Remove padding here as container already has it */
-    box-shadow: none; /* Remove shadow here as container already has it */
-    background: none; /* Remove background here as container already has it */
+    padding: 0;
+    box-shadow: none;
+    background: none;
 }
 
+.form-actions-top {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+  margin-bottom: 20px;
+}
 
 /* Labels */
 label {
   font-weight: 500;
-  margin-bottom: 6px; /* Slightly more space */
+  margin-bottom: 6px;
   display: block;
   color: #333;
   font-size: 0.95rem;
@@ -30,27 +35,33 @@ input[type="date"],
 input[type="number"],
 select {
   width: 100%;
-  padding: 10px 12px; /* More padding */
-  border: 1px solid #dcdcdc; /* Lighter border */
-  border-radius: 5px; /* Rounded corners */
+  padding: 10px 12px;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
   font-size: 1rem;
-  margin-bottom: 0; /* Remove default margin-bottom */
+  margin-bottom: 0;
   box-sizing: border-box;
   transition: border-color 0.2s, box-shadow 0.2s;
-  background-color: #f8fafd; /* Light background for inputs */
+  background-color: #f8fafd;
 }
 
 input:focus,
 select:focus {
   border-color: #007bff;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Subtle focus shadow */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
   outline: none;
-  background-color: #ffffff; /* White background on focus */
+  background-color: #ffffff;
+}
+
+input[disabled],
+select[disabled] {
+  background-color: #e9ecef;
+  cursor: not-allowed;
 }
 
 /* Form group for spacing */
 .form-group {
-  margin-bottom: 15px; /* Consistent spacing */
+  margin-bottom: 15px;
 }
 
 /* Buttons */
@@ -64,9 +75,8 @@ select:focus {
 }
 
 .btn-secondary {
-  background-color: #6c757d; /* Grey secondary button */
+  background-color: #6c757d;
   color: #fff;
-  margin-right: 8px;
 }
 
 .btn-secondary:hover {
@@ -75,7 +85,7 @@ select:focus {
 }
 
 .btn-success {
-  background-color: #28a745; /* Green success button */
+  background-color: #28a745;
   color: #fff;
 }
 
@@ -83,6 +93,25 @@ select:focus {
   background-color: #218838;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
+
+.btn-info { /* Used for the new "Editar" button in view mode */
+  background-color: #17a2b8;
+  color: #fff;
+}
+
+.btn-info:hover {
+  background-color: #138496;
+}
+
+.btn-danger { /* Used for the new "Apagar" button in view mode */
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
 
 .btn[disabled] {
     opacity: 0.6;
@@ -92,7 +121,7 @@ select:focus {
 
 /* Error messages */
 .error-message {
-  color: #dc3545; /* Red for errors */
+  color: #dc3545;
   font-size: 0.85em;
   margin-top: 5px;
 }
