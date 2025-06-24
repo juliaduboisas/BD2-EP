@@ -101,7 +101,6 @@
 .btn {
   border: none;
   padding: 10px 20px;
-  /* Removed margin-right from here as gap handles spacing in action-buttons */
   border-radius: 5px;
   font-weight: 500;
   transition: background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
@@ -151,6 +150,11 @@
 }
 .btn-danger:hover {
   background-color: #c82333;
+}
+
+.btn-sm { /* Small button override */
+    padding: 6px 12px;
+    font-size: 0.85rem;
 }
 
 

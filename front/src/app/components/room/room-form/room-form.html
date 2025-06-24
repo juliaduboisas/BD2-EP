@@ -1,0 +1,37 @@
+<h2 mat-dialog-title>
+  <ng-container *ngIf="isEditMode">Editar Sala</ng-container>
+  <ng-container *ngIf="!isEditMode">Adicionar Nova Sala</ng-container>
+</h2>
+
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="roomForm" (ngSubmit)="onSubmit()" class="form-modal-content">
+        <div class="form-group">
+            <label for="numero" class="form-label">Número da Sala:</label>
+            <input type="number" id="numero" formControlName="numero" class="form-control" [class.is-invalid]="roomForm.get('numero')?.invalid && roomForm.get('numero')?.touched">
+            <div *ngIf="roomForm.get('numero')?.invalid && roomForm.get('numero')?.touched" class="error-message">
+                O número da sala é obrigatório e deve ser um número maior que zero.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="title" class="form-label">Título da Sala:</label>
+            <input type="text" id="title" formControlName="title" class="form-control" [class.is-invalid]="roomForm.get('title')?.invalid && roomForm.get('title')?.touched">
+            <div *ngIf="roomForm.get('title')?.invalid && roomForm.get('title')?.touched" class="error-message">
+                O título é obrigatório.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="capacidade" class="form-label">Capacidade (Pessoas):</label>
+            <input type="number" id="capacidade" formControlName="capacidade" class="form-control" [class.is-invalid]="roomForm.get('capacidade')?.invalid && roomForm.get('capacidade')?.touched">
+            <div *ngIf="roomForm.get('capacidade')?.invalid && roomForm.get('capacidade')?.touched" class="error-message">
+                A capacidade é obrigatória e deve ser um número maior que zero.
+            </div>
+        </div>
+	</form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()">Cancelar</button>
+  <button mat-raised-button color="primary" [disabled]="roomForm.invalid" (click)="onSubmit()">
+    {{ isEditMode ? 'Salvar Alterações' : 'Adicionar' }}
+  </button>
+</mat-dialog-actions>

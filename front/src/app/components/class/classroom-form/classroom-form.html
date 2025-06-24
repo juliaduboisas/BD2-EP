@@ -1,0 +1,93 @@
+<h2 mat-dialog-title>
+  <ng-container *ngIf="isEditMode">Editar Turma</ng-container>
+  <ng-container *ngIf="!isEditMode">Adicionar Nova Turma</ng-container>
+</h2>
+
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="classroomForm" (ngSubmit)="onSubmit()" class="form-modal-content">
+        <div class="form-group" *ngIf="isEditMode">
+            <label for="id" class="form-label">ID da Turma:</label>
+            <input type="number" id="id" formControlName="id" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="qtdAulasSemanais" class="form-label">Aulas Semanais:</label>
+            <input type="number" id="qtdAulasSemanais" formControlName="qtdAulasSemanais" class="form-control" [class.is-invalid]="classroomForm.get('qtdAulasSemanais')?.invalid && classroomForm.get('qtdAulasSemanais')?.touched">
+            <div *ngIf="classroomForm.get('qtdAulasSemanais')?.invalid && classroomForm.get('qtdAulasSemanais')?.touched" class="error-message">
+                Aulas semanais é obrigatório e deve ser um número.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="horarioInicio" class="form-label">Horário de Início:</label>
+            <input type="time" id="horarioInicio" formControlName="horarioInicio" class="form-control" [class.is-invalid]="classroomForm.get('horarioInicio')?.invalid && classroomForm.get('horarioInicio')?.touched">
+            <div *ngIf="classroomForm.get('horarioInicio')?.invalid && classroomForm.get('horarioInicio')?.touched" class="error-message">
+                Horário de início é obrigatório.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="horarioFim" class="form-label">Horário de Fim:</label>
+            <input type="time" id="horarioFim" formControlName="horarioFim" class="form-control" [class.is-invalid]="classroomForm.get('horarioFim')?.invalid && classroomForm.get('horarioFim')?.touched">
+            <div *ngIf="classroomForm.get('horarioFim')?.invalid && classroomForm.get('horarioFim')?.touched" class="error-message">
+                Horário de fim é obrigatório.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="tamanho" class="form-label">Tamanho (Capacidade da Turma):</label>
+            <input type="number" id="tamanho" formControlName="tamanho" class="form-control" [class.is-invalid]="classroomForm.get('tamanho')?.invalid && classroomForm.get('tamanho')?.touched">
+            <div *ngIf="classroomForm.get('tamanho')?.invalid && classroomForm.get('tamanho')?.touched" class="error-message">
+                Tamanho é obrigatório e deve ser um número.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="genero" class="form-label">Gênero:</label>
+            <select id="genero" formControlName="genero" class="form-select" [class.is-invalid]="classroomForm.get('genero')?.invalid && classroomForm.get('genero')?.touched">
+                <option value="">Selecione</option>
+                <option value="M">Masculino</option>
+                <option value="F">Feminino</option>
+                <option value="O">Outro</option>
+                <option value="N">Não Informado</option>
+            </select>
+            <div *ngIf="classroomForm.get('genero')?.invalid && classroomForm.get('genero')?.touched" class="error-message">
+                Gênero é obrigatório.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="nivel" class="form-label">Nível:</label>
+            <select id="nivel" formControlName="nivel" class="form-select" [class.is-invalid]="classroomForm.get('nivel')?.invalid && classroomForm.get('nivel')?.touched">
+                <option value="">Selecione</option>
+                <option value="Iniciante">Iniciante</option>
+                <option value="Intermediario">Intermediário</option>
+                <option value="Avancado">Avançado</option>
+            </select>
+            <div *ngIf="classroomForm.get('nivel')?.invalid && classroomForm.get('nivel')?.touched" class="error-message">
+                Nível é obrigatório.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="idModalidade" class="form-label">Modalidade:</label>
+            <select id="idModalidade" formControlName="idModalidade" class="form-select" [class.is-invalid]="classroomForm.get('idModalidade')?.invalid && classroomForm.get('idModalidade')?.touched">
+                <option value="">Selecione uma Modalidade</option>
+                <option *ngFor="let mod of (modalities$ | async)" [value]="mod.id">{{ mod.nome }}</option>
+            </select>
+            <div *ngIf="classroomForm.get('idModalidade')?.invalid && classroomForm.get('idModalidade')?.touched" class="error-message">
+                Modalidade é obrigatória.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="cpfInstrutor" class="form-label">Instrutor (CPF):</label>
+            <select id="cpfInstrutor" formControlName="cpfInstrutor" class="form-select" [class.is-invalid]="classroomForm.get('cpfInstrutor')?.invalid && classroomForm.get('cpfInstrutor')?.touched">
+                <option value="">Selecione um Instrutor</option>
+                <option *ngFor="let instr of (instructors$ | async)" [value]="instr.cpf">{{ instr.nome }} ({{ instr.cpf }})</option>
+            </select>
+            <div *ngIf="classroomForm.get('cpfInstrutor')?.invalid && classroomForm.get('cpfInstrutor')?.touched" class="error-message">
+                Instrutor é obrigatório.
+            </div>
+        </div>
+	</form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()">Cancelar</button>
+  <button mat-raised-button color="primary" [disabled]="classroomForm.invalid" (click)="onSubmit()">
+    {{ isEditMode ? 'Salvar Alterações' : 'Adicionar' }}
+  </button>
+</mat-dialog-actions>

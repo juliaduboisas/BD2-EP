@@ -3,8 +3,7 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
-    padding: 0; /* No padding here, handled by dialog content */
-    /* Remove any card-specific styles like box-shadow, background etc. if they were applied directly here */
+    padding: 0;
 }
 
 /* Labels */
@@ -21,7 +20,9 @@ input[type="text"],
 input[type="email"],
 input[type="date"],
 input[type="number"],
-select {
+input[type="time"], /* Added type time */
+select,
+textarea {
   width: 100%;
   padding: 10px 12px;
   border: 1px solid #dcdcdc;
@@ -34,7 +35,8 @@ select {
 }
 
 input:focus,
-select:focus {
+select:focus,
+textarea:focus {
   border-color: #007bff;
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
   outline: none;
@@ -42,7 +44,8 @@ select:focus {
 }
 
 input[disabled],
-select[disabled] {
+select[disabled],
+textarea[disabled] {
   background-color: #e9ecef;
   cursor: not-allowed;
 }
@@ -60,7 +63,6 @@ select[disabled] {
 }
 
 /* Angular Material Dialog specific styling adjustments */
-/* These will override default Material styles if needed, or simply ensure consistency */
 mat-dialog-title {
   font-size: 1.5em;
   font-weight: 600;
@@ -71,7 +73,7 @@ mat-dialog-title {
 }
 
 mat-dialog-content {
-  padding: 20px 24px; /* Default Material padding, adjust if needed */
+  padding: 20px 24px;
 }
 
 mat-dialog-actions {
@@ -80,8 +82,6 @@ mat-dialog-actions {
   margin-top: 20px;
 }
 
-/* Ensure material buttons are styled as primary/secondary/success/danger if needed */
-/* Note: Material buttons use 'color' property (primary, accent, warn) not custom classes like btn-success */
 .mat-raised-button.mat-primary {
   background-color: #007bff;
   color: white;
@@ -98,9 +98,9 @@ mat-dialog-actions {
   background-color: #c82333;
 }
 
-.mat-button { /* For regular buttons like "Cancelar" */
+.mat-button {
   color: #6c757d;
 }
 .mat-button:hover {
-  background-color: rgba(0,0,0,0.04); /* Light hover effect */
+  background-color: rgba(0,0,0,0.04);
 }

@@ -4,7 +4,8 @@ import { Router, RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { MatDialog } from '@angular/material/dialog';
 import { StudentDetailsModal } from '../student-details-modal/student-details-modal';
-import { ConfirmDialogComponent } from '../../confirm-dialog/confirm-dialog'; // Import ConfirmDialogComponent
+import { ConfirmDialogComponent } from '../../confirm-dialog/confirm-dialog';
+import { StudentForm } from '../student-form/student-form'; // Import StudentForm
 
 @Component({
   selector: "app-students-list",
@@ -56,8 +57,40 @@ export class StudentsList implements OnInit {
     });
   }
 
+  // Modified to open StudentForm as a modal for adding
   createNewStudent(): void {
-    this.router.navigate(["/students/new"]);
+    const dialogRef = this.dialog.open(StudentForm, {
+      data: { student: null, isEdit: false }, // Pass null for student, isEdit: false for new
+      width: '600px' // Adjust width as needed
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) { // If dialog closed with true (success)
+        this.loadStudents(); // Reload the list
+      }
+    });
+  }
+
+  // New method to open StudentForm as a modal for editing
+  editStudent(cpf: string): void {
+    this.studentService.getStudentByCpf(cpf).subscribe({
+      next: (student) => {
+        const dialogRef = this.dialog.open(StudentForm, {
+          data: { student: student, isEdit: true }, // Pass student data, isEdit: true
+          width: '600px'
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+          if (result) {
+            this.loadStudents(); // Reload the list
+          }
+        });
+      },
+      error: (error) => {
+        console.error('Erro ao carregar aluno para edição:', error);
+        alert('Erro ao carregar aluno para edição.');
+      }
+    });
   }
 
   viewStudentDetails(cpf: string): void {
@@ -81,11 +114,11 @@ export class StudentsList implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result) { // If user clicked 'Confirmar'
+      if (result) {
         this.studentService.deleteStudent(cpf).subscribe({
           next: () => {
             alert('Aluno removido com sucesso!');
-            this.loadStudents(); // Reload the list
+            this.loadStudents();
           },
           error: (error) => {
             console.error('Erro ao remover aluno:', error);

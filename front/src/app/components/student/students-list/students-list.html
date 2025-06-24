@@ -21,7 +21,8 @@
           <td>{{ student.nome }}</td>
           <td class="action-buttons">
             <button class="btn btn-primary" (click)="viewStudentDetails(student.cpf)">Ver Detalhes</button>
-            <button class="btn btn-danger" (click)="deleteStudent(student.cpf)">Remover</button> </td>
+            <button class="btn btn-info" (click)="editStudent(student.cpf)">Editar</button> <button class="btn btn-danger" (click)="deleteStudent(student.cpf)">Remover</button>
+          </td>
         </tr>
         <tr *ngIf="students.length === 0">
           <td colspan="3">Nenhum aluno encontrado.</td>

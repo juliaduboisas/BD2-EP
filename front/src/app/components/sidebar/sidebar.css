@@ -2,44 +2,52 @@
   display: flex;
   align-items: center;
   padding: 20px;
-  background-color: #212f3d; /* Slightly different shade for header */
+  background-color: #212f3d;
   margin-bottom: 20px;
+}
+
+.sidebar-header a { /* Style for the clickable area in the header */
+  display: flex;
+  align-items: center;
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit color from parent */
 }
 
 .sidebar-logo {
   width: 40px;
   height: 40px;
   margin-right: 10px;
+  filter: brightness(0) invert(1);
 }
 
 .sidebar-app-name {
-  color: #f0f0f0; /* Light text for contrast */
+  color: #f0f0f0;
   font-size: 1.2rem;
   font-weight: 600;
 }
 
 .nav {
   list-style-type: none;
-  padding: 0 16px; /* Adjust padding */
+  padding: 0 16px;
   margin: 0;
 }
 
 .nav-icon {
-  width: 24px; /* Smaller icons */
+  width: 24px;
   height: 24px;
   margin-right: 12px;
-  filter: invert(1); /* Keep icons white for now, adjust if you use colored ones */
+  filter: brightness(0) invert(1);
 }
 
 .nav-item {
-  margin-bottom: 8px; /* Spacing between items */
+  margin-bottom: 8px;
 }
 
 .nav-item a {
   text-decoration: none;
-  color: #b0c4de; /* Lighter blue/grey for links */
-  border-radius: 8px; /* Slightly rounded corners for active/hover states */
-  height: 48px; /* Taller items for easier clicking */
+  color: #b0c4de;
+  border-radius: 8px;
+  height: 48px;
   display: flex;
   align-items: center;
   padding-left: 20px;
@@ -47,30 +55,12 @@
 }
 
 .nav-item a.active {
-  background-color: #3b5998; /* Deeper blue for active state */
-  color: #ffffff; /* White text on active */
+  background-color: #3b5998;
+  color: #ffffff;
   font-weight: 600;
 }
 
 .nav-item a:hover {
-  background-color: #3b5998; /* Hover color matches active */
+  background-color: #3b5998;
   color: #ffffff;
 }
-
-/* ... (previous styles) ... */
-
-.sidebar-logo {
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
-  filter: brightness(0) invert(1); /* Make logo white for dark background */
-}
-
-.nav-icon {
-  width: 24px;
-  height: 24px;
-  margin-right: 12px;
-  filter: brightness(0) invert(1); /* Make icons white for dark background */
-}
-
-/* ... (rest of the sidebar.css) ... */
