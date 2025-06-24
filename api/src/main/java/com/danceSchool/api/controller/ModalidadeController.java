@@ -1,15 +1,24 @@
 package com.danceSchool.api.controller;
 
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.danceSchool.api.entity.modalidade.DataModalidade;
 import com.danceSchool.api.entity.modalidade.Modalidade;
 import com.danceSchool.api.entity.modalidade.ModalidadeRepository;
+
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/modality")
@@ -19,7 +28,7 @@ public class ModalidadeController {
 
     @PostMapping("/add")
     public void add(@RequestBody DataModalidade dataModalidade) {
-        Modalidade modalidade = new Modalidade();
+        Modalidade modalidade = new Modalidade(dataModalidade);
         modalidadeRepository.save(modalidade);
     }
 
@@ -45,16 +54,12 @@ public class ModalidadeController {
     }
 
     @PutMapping("/update")
-    public void updateModalidade(@RequestBody DataModalidade dataModalidade) {
-        Optional<Modalidade> modalidade = modalidadeRepository.findById(dataModalidade.id());
+    public void updateModalidade(@RequestBody Integer id) {
+        Optional<Modalidade> modalidade = modalidadeRepository.findById(id);
 
         if(modalidade.isEmpty()){
             throw new EntityNotFoundException("A modalidade busca não existe ou não foi encontrada.");
         }
-
-        modalidade.get().setNome(dataModalidade.nome());
-
-        modalidadeRepository.save(modalidade.get());
     }
 
     @DeleteMapping("/delete/{id}")

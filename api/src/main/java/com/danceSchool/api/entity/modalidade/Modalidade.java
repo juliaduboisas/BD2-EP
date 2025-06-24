@@ -1,6 +1,11 @@
 package com.danceSchool.api.entity.modalidade;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,6 +29,6 @@ public class Modalidade {
     private String nome;
 
     public Modalidade(DataModalidade dataModalidade) {
-        this(dataModalidade.id(), dataModalidade.nome());
+        this.nome = dataModalidade.nome();
     }
 }
