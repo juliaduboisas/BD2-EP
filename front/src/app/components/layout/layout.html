@@ -1,11 +1,23 @@
 <div class="page">
-	<div class="top-row">
-		<a routerLink="/">Have Dreams</a>
-	</div>
-	<main>
-		<app-sidebar></app-sidebar>
-		<article class="content">
-			<router-outlet></router-outlet>
-		</article>
-	</main>
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <img src="assets/icons/icon-home.png" alt="Logo" class="top-bar-logo">
+      <span class="app-name">Have Dreams</span>
+    </div>
+    <div class="top-bar-right">
+      <input type="text" placeholder="Search..." class="search-input">
+      <button class="icon-button">
+        <img src="assets/icons/icon-user.png" alt="User" class="icon">
+      </button>
+      <button class="icon-button">
+        <img src="assets/icons/icon-logout.png" alt="Logout" class="icon">
+      </button>
+    </div>
+  </header>
+  <main class="main-layout-content">
+    <app-sidebar></app-sidebar>
+    <article class="content">
+      <router-outlet></router-outlet>
+    </article>
+  </main>
 </div>

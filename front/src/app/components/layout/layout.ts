@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { Sidebar } from '../sidebar/sidebar';
-import { RouterModule } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router'; // Add RouterOutlet
+import { CommonModule } from '@angular/common'; // Add CommonModule
 
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [RouterModule,Sidebar],
+  imports: [RouterModule, Sidebar, RouterOutlet, CommonModule], // Add RouterOutlet and CommonModule
   templateUrl: './layout.html',
-  styleUrl: './layout.css'
+  styleUrls: ['./layout.css']
 })
 export class Layout {
-
 }

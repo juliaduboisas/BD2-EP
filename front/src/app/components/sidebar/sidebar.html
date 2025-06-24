@@ -1,22 +1,26 @@
-<div class="nav">
-	<li class="nav-item">
-		<a routerLink="/students" [class.active]="activeLink === 'students'">
-		<img src="assets/icons/icon-aluno.png" alt="Ícone Aluno" class="nav-icon"> Alunos
-		</a>
-	</li>
-	<li class="nav-item">
-		<a routerLink="/modalities" [class.active]="activeLink === 'modalities'">
-		<img src="assets/icons/icon-modalidade.png" alt="Ícone Modalidade" class="nav-icon"> Modalidades
-		</a>
-	</li>
-	<li class="nav-item">
-		<a routerLink="/rooms" [class.active]="activeLink === 'rooms'">
-		<img src="assets/icons/icon-sala.png" alt="Ícone Sala" class="nav-icon"> Salas
-		</a>
-	</li>
-	<li class="nav-item">
-		<a routerLink="/classes" [class.active]="activeLink === 'classes'">
-		<img src="assets/icons/icon-turma.png" alt="Ícone Turma" class="nav-icon"> Turmas
-		</a>
-	</li>
+<div class="sidebar-header">
+  <img src="assets/icons/icon-logo-white.png" alt="Udemy Inter.school Logo" class="sidebar-logo">
+  <span class="sidebar-app-name">Udemy Inter.school</span>
 </div>
+<ul class="nav">
+  <li class="nav-item">
+    <a routerLink="/students" [class.active]="activeLink === 'students'">
+    <img src="assets/icons/icon-aluno-white.png" alt="Ícone Aluno" class="nav-icon"> Alunos
+    </a>
+  </li>
+  <li class="nav-item">
+    <a routerLink="/modalities" [class.active]="activeLink === 'modalities'">
+    <img src="assets/icons/icon-modalidade-white.png" alt="Ícone Modalidade" class="nav-icon"> Modalidades
+    </a>
+  </li>
+  <li class="nav-item">
+    <a routerLink="/rooms" [class.active]="activeLink === 'rooms'">
+    <img src="assets/icons/icon-sala-white.png" alt="Ícone Sala" class="nav-icon"> Salas
+    </a>
+  </li>
+  <li class="nav-item">
+    <a routerLink="/classes" [class.active]="activeLink === 'classes'">
+    <img src="assets/icons/icon-turma-white.png" alt="Ícone Turma" class="nav-icon"> Turmas
+    </a>
+  </li>
+</ul>

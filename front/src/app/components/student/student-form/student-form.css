@@ -1,72 +1,98 @@
-/* Container do formulário */
-form {
-  max-width: 400px;
-  margin: 32px auto;
-  padding: 24px 24px 16px 24px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+/* Container for the form to apply card styling */
+.container {
+  padding: 24px; /* Default card padding */
 }
+
+/* Form specific card styling if needed */
+.form-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0; /* Remove padding here as container already has it */
+    box-shadow: none; /* Remove shadow here as container already has it */
+    background: none; /* Remove background here as container already has it */
+}
+
 
 /* Labels */
 label {
   font-weight: 500;
-  margin-bottom: 4px;
+  margin-bottom: 6px; /* Slightly more space */
   display: block;
+  color: #333;
+  font-size: 0.95rem;
 }
 
-/* Inputs e selects */
+/* Inputs and selects */
 input[type="text"],
 input[type="email"],
 input[type="date"],
 input[type="number"],
 select {
   width: 100%;
-  padding: 8px 10px;
-  border: 1px solid #bdbdbd;
-  border-radius: 6px;
+  padding: 10px 12px; /* More padding */
+  border: 1px solid #dcdcdc; /* Lighter border */
+  border-radius: 5px; /* Rounded corners */
   font-size: 1rem;
-  margin-bottom: 8px;
+  margin-bottom: 0; /* Remove default margin-bottom */
   box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background-color: #f8fafd; /* Light background for inputs */
 }
 
 input:focus,
 select:focus {
-  border: 1.5px solid #1976d2;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Subtle focus shadow */
   outline: none;
+  background-color: #ffffff; /* White background on focus */
 }
 
-/* Botões */
-button,
-input[type="submit"] {
-  border: none;
-  padding: 8px 20px;
-  background: #1976d2;
+/* Form group for spacing */
+.form-group {
+  margin-bottom: 15px; /* Consistent spacing */
+}
+
+/* Buttons */
+.btn {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary {
+  background-color: #6c757d; /* Grey secondary button */
+  color: #fff;
+  margin-right: 8px;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-success {
+  background-color: #28a745; /* Green success button */
   color: #fff;
 }
 
-button.secondary,
-.back-btn {
-  background: #757575;
+.btn-success:hover {
+  background-color: #218838;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-button:hover,
-input[type="submit"]:hover {
-  background: #125ea2;
+.btn[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
 }
 
-/* Espaçamento entre campos */
-.form-group {
-  margin-bottom: 12px;
-}
-
-/* Mensagens de erro */
+/* Error messages */
 .error-message {
-  color: #d32f2f;
-  font-size: 0.95em;
-  margin-top: -6px;
-  margin-bottom: 8px;
+  color: #dc3545; /* Red for errors */
+  font-size: 0.85em;
+  margin-top: 5px;
 }

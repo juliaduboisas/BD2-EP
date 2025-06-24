@@ -1,34 +1,58 @@
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #212f3d; /* Slightly different shade for header */
+  margin-bottom: 20px;
+}
+
+.sidebar-logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.sidebar-app-name {
+  color: #f0f0f0; /* Light text for contrast */
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
 .nav {
-	list-style-type: none;
-	padding: 3rem 1rem 0 1rem;
+  list-style-type: none;
+  padding: 0 16px; /* Adjust padding */
+  margin: 0;
 }
 
 .nav-icon {
-	width: 28px;
-	height: 28px;
-	margin-right: 1rem;
-	filter: invert(1);
+  width: 24px; /* Smaller icons */
+  height: 24px;
+  margin-right: 12px;
+  filter: invert(1); /* Keep icons white for now, adjust if you use colored ones */
 }
 
 .nav-item {
-	padding-bottom: 1rem;
+  margin-bottom: 8px; /* Spacing between items */
 }
 
 .nav-item a {
-	text-decoration: none;
-	color: #d7d7d7;
-	border-top-left-radius: 20px;
-	border-bottom-right-radius: 20px;
-	height: 3rem;
-	display: flex;
-	align-items: center;
-	padding-left: 1.5rem;
+  text-decoration: none;
+  color: #b0c4de; /* Lighter blue/grey for links */
+  border-radius: 8px; /* Slightly rounded corners for active/hover states */
+  height: 48px; /* Taller items for easier clicking */
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  transition: background-color 0.2s, color 0.2s;
 }
 
 .nav-item a.active {
-	background-color: rgba(255, 255, 255, 0.2);
+  background-color: #3b5998; /* Deeper blue for active state */
+  color: #ffffff; /* White text on active */
+  font-weight: 600;
 }
 
 .nav-item a:hover {
-	background-color: rgba(255, 255, 255, 0.3);
+  background-color: #3b5998; /* Hover color matches active */
+  color: #ffffff;
 }

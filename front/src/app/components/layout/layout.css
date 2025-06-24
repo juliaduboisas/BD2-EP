@@ -1,65 +1,125 @@
 .page {
-	height: 100%;
-	position: relative;
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-.top-row {
-	min-height: 70px;
-	display: flex;
-	align-items: center;
-	padding-left: 3rem;
+.top-bar {
+  background-color: #ffffff; /* White top bar */
+  min-height: 60px; /* Slightly smaller top bar */
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Space out left and right sections */
+  padding: 0 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
-.top-row a {
-	text-decoration: none;
-	font-size: 1.6rem;
-	color: #002088;
+.top-bar-left {
+  display: flex;
+  align-items: center;
 }
 
-main {
-	flex: 1;
-	display: flex;
-	flex-direction: row;
+.top-bar-logo {
+  width: 32px; /* Adjust logo size */
+  height: 32px;
+  margin-right: 12px;
+  filter: none; /* Ensure logo color is natural if it's an SVG or colored PNG */
+}
+
+.app-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #212121; /* Darker text for app name */
+}
+
+.top-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* Spacing between elements */
+}
+
+.search-input {
+  padding: 8px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 1rem;
+  width: 200px;
+  transition: border-color 0.2s;
+}
+
+.search-input:focus {
+  border-color: #007bff; /* Highlight on focus */
+  outline: none;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  padding: 8px;
+  border-radius: 50%; /* Circular buttons */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.icon-button:hover {
+  background-color: #f0f0f0; /* Light hover effect */
+}
+
+.icon-button .icon {
+  width: 24px;
+  height: 24px;
+}
+
+.main-layout-content {
+  flex: 1;
+  display: flex;
 }
 
 app-sidebar {
-	width: 250px;
-	border-top-left-radius: 20px;
-	position: sticky;
-	flex-shrink: 0;
-	background: linear-gradient(to bottom, #002088, #0029F9);
+  width: 260px; /* Slightly wider sidebar */
+  flex-shrink: 0;
+  background-color: #2c3e50; /* Darker blue/grey for sidebar */
+  padding-top: 2rem;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1); /* Shadow to separate from content */
 }
 
 .content {
-	width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-	padding-top: 1rem;
-	font-size: 20px;
+  flex-grow: 1;
+  padding: 24px; /* More padding for content area */
+  max-width: calc(100% - 260px); /* Adjust based on sidebar width */
+  margin: 0 auto; /* Center the content */
+  background-color: #f9fbfd; /* Very light background for content */
 }
 
+/* Common styles for page headers within content */
+/* Keep these from previous iteration, ensure they look good with new design */
 ::ng-deep .page-header {
-	display: flex;
-	align-items: center;
-	border-bottom: 2px solid #505050;
-	margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0; /* Lighter border */
+  padding-bottom: 0.8rem;
+  margin-bottom: 24px; /* More margin */
 }
 
 ::ng-deep .page-header a {
-	text-decoration: none;
-	display: flex;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: #555; /* Slightly lighter text for path */
 }
 
 ::ng-deep .page-header .icon {
-	width: 28px;
-	height: 28px;
-	padding-bottom: 6px;
-	margin-right: 1rem;
+  width: 24px; /* Smaller icons in page header */
+  height: 24px;
+  margin-right: 0.6rem;
+  filter: none; /* Assuming colored icons */
 }
 
 ::ng-deep .page-header h1 {
-	color: #505050;
-	margin-right: 1rem;
+  color: #333;
+  margin-right: 0.5rem;
+  font-size: 1.8rem; /* Slightly smaller heading */
+  font-weight: 600;
 }
