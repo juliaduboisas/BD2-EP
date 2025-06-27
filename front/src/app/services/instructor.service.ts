@@ -22,7 +22,7 @@ export interface FullInstructor extends Instructor {
   providedIn: 'root'
 })
 export class InstructorService {
-  private apiUrl = 'api/instructor';
+  private apiUrl = 'api/instrutor';
 
   constructor(
     private http: HttpClient,
