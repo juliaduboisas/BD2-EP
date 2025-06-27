@@ -10,7 +10,7 @@ public record DataAdministrativo(
     public DataAdministrativo(Administrativo administrativo) {
         this(
             administrativo.getCpf(),
-            new DataFuncionario(administrativo.getFuncionario()),
+            administrativo.getFuncionario() != null ? new DataFuncionario(administrativo.getFuncionario()) : null,
             administrativo.getNivelAcessos()
         );
     }
