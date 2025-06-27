@@ -1,15 +1,17 @@
-FROM node:22-alpine
+FROM node:22-alpine AS build
+WORKDIR /app
 
-RUN npm install -g @angular/cli 
-
-WORKDIR /frontend
-
-COPY package.json .
-
+COPY package*.json ./
 RUN npm install
 
 COPY . .
 
-EXPOSE 4200
+RUN npm run build
 
-CMD ng serve --host 0.0.0.0 --proxy-config proxy.conf.json
+FROM nginx:1.27.0-alpine
+
+COPY --from=build /app/dist/front/browser /usr/share/nginx/html
+
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
