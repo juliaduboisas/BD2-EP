@@ -1,5 +1,5 @@
 services:
-  frontend_builder:
+  frontend:
     image: dimidimii/dance-school-webapp:v1.4
     container_name: dance_school_frontend_builder
     ports:
