@@ -2,7 +2,7 @@
 Exercício-programa para a matéria de Banco de Dados 2 (2025) para o Bacharelado de Sistemas de Informação 
 
 ## Rodar o deploy
-Acesse o site "http://15.228.221.36:4200/"
+Acesse o site http://15.228.221.36:4200/
 
 ## Iniciar o Back-End (API)
 A inicialização da api pode ser feita com o Maven se o banco de dados estiver configurado corretamente.\
