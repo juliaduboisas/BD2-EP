@@ -1,0 +1,22 @@
+<div class="container card">
+  <div class="page-header">
+    <a routerLink="/">
+      <img src="assets/icons/icon-home.png" alt="Ícone Home" class="icon">
+    </a>
+    <h1>/ Modalidades</h1>
+  </div>
+  <button class="btn btn-new" (click)="createNewModality()">Adicionar</button>
+
+  <div class="modality-cards-grid">
+    <div class="modality-card card" *ngFor="let modality of modalities">
+      <h3>{{ modality.nome }}</h3>
+      <p>{{ modality.descricao }}</p>
+      <div class="modality-actions">
+        <button class="btn btn-danger btn-sm" (click)="deleteModality(modality.id)">Remover</button>
+      </div>
+    </div>
+    <div class="empty-list" *ngIf="modalities.length === 0">
+      <p>Nenhuma modalidade encontrada.</p>
+    </div>
+  </div>
+</div>

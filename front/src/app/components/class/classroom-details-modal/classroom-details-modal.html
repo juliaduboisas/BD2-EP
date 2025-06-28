@@ -1,0 +1,61 @@
+<h2 mat-dialog-title>Detalhes da Turma - ID: {{ classroom.id }}</h2>
+<mat-dialog-content>
+  <div class="classroom-details-grid">
+    <div class="detail-group">
+      <h3>Informações da Turma</h3>
+      <div *ngIf="isLoadingDetails">Carregando informações...</div>
+      <div *ngIf="errorLoadingDetails">Erro ao carregar informações da turma.</div>
+      <div *ngIf="!isLoadingDetails && !errorLoadingDetails">
+        <div class="detail-item">
+          <span class="label">Aulas Semanais:</span>
+          <span class="value">{{ classroom.qtdAulasSemanais }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="label">Horário:</span>
+          <span class="value">{{ classroom.horarioInicio }} - {{ classroom.horarioFim }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="label">Capacidade:</span>
+          <span class="value">{{ classroom.tamanho }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="label">Gênero:</span>
+          <span class="value">{{ classroom.genero }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="label">Nível:</span>
+          <span class="value">{{ classroom.nivel }}</span>
+        </div>
+        
+        <div class="detail-item">
+          <span class="label">Modalidade:</span>
+          <span class="value" *ngIf="modality">{{ modality.nome }}</span>
+          <span class="value" *ngIf="!modality">Carregando...</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="label">Instrutor:</span>
+          <span class="value" *ngIf="instructor">{{ instructor.nome }} - ({{ instructor.cpf }})</span>
+          <span class="value" *ngIf="!instructor">Carregando...</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-group students-list-section">
+      <h3>Alunos Matriculados</h3>
+      <div *ngIf="isLoadingDetails">Carregando alunos...</div>
+      <div *ngIf="errorLoadingDetails">Erro ao carregar alunos.</div>
+      <div *ngIf="!isLoadingDetails && !errorLoadingDetails">
+        <ul *ngIf="enrolledStudents.length > 0" class="enrolled-students-list">
+          <li *ngFor="let student of enrolledStudents">
+            {{ student.nome }} - {{ student.cpf }}
+          </li>
+        </ul>
+        <div *ngIf="enrolledStudents.length === 0">Nenhum aluno matriculado nesta turma.</div>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="closeModal()">Fechar</button>
+</mat-dialog-actions>

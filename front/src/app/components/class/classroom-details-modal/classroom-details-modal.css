@@ -1,0 +1,87 @@
+.classroom-details-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Default to single column */
+  gap: 25px; /* Spacing between groups */
+  padding: 10px 0;
+}
+
+@media (min-width: 768px) {
+  .classroom-details-grid {
+    /* Changed to 1fr for the main details section and 1fr for the students list section */
+    grid-template-columns: 1fr 1fr;
+  }
+  .students-list-section {
+    grid-column: 1 / -1; /* Make students list span full width below the 2 columns */
+  }
+}
+
+.detail-group {
+  background-color: #f8fafd;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.detail-group h3 {
+  font-size: 1.25em;
+  color: #007bff;
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 8px;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column; /* Stack label and value */
+  margin-bottom: 10px;
+}
+
+.detail-item .label {
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 2px;
+  font-size: 0.85em;
+  text-transform: uppercase;
+}
+
+.detail-item .value {
+  font-size: 1em;
+  color: #333;
+}
+
+.enrolled-students-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.enrolled-students-list li {
+  padding: 8px 0;
+  border-bottom: 1px dashed #eee;
+  color: #555;
+}
+
+.enrolled-students-list li:last-child {
+  border-bottom: none;
+}
+
+/* Material Dialog specific styles */
+mat-dialog-title {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+mat-dialog-content {
+  padding: 20px 24px;
+}
+
+mat-dialog-actions {
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+  margin-top: 20px;
+}

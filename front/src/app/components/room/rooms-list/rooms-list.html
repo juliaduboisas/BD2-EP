@@ -1,0 +1,21 @@
+<div class="container card">
+  <div class="page-header">
+    <a routerLink="/">
+      <img src="assets/icons/icon-home.png" alt="Ícone Home" class="icon">
+    </a>
+    <h1>/ Salas</h1>
+  </div>
+  <button class="btn btn-new" (click)="createNewRoom()">Adicionar Nova Sala</button>
+
+  <div class="room-cards-grid">
+    <div class="room-card card" *ngFor="let room of rooms">
+      <h3>{{ room.title }}</h3> <p>Número: {{ room.numero }}</p> <p>Capacidade: {{ room.capacidade }} pessoas</p>
+      <div class="room-actions">
+        <button class="btn btn-info btn-sm" (click)="editRoom(room.numero)">Editar</button> <button class="btn btn-danger btn-sm" (click)="deleteRoom(room.numero)">Remover</button>
+      </div>
+    </div>
+    <div class="empty-list" *ngIf="rooms.length === 0">
+      <p>Nenhuma sala encontrada.</p>
+    </div>
+  </div>
+</div>

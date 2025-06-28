@@ -1,72 +1,106 @@
-/* Container do formulário */
-form {
-  max-width: 400px;
-  margin: 32px auto;
-  padding: 24px 24px 16px 24px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+/* Styling for the form content within the modal */
+.form-modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0; /* No padding here, handled by dialog content */
+    /* Remove any card-specific styles like box-shadow, background etc. if they were applied directly here */
 }
 
 /* Labels */
 label {
   font-weight: 500;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   display: block;
+  color: #333;
+  font-size: 0.95rem;
 }
 
-/* Inputs e selects */
+/* Inputs and selects */
 input[type="text"],
 input[type="email"],
 input[type="date"],
 input[type="number"],
 select {
   width: 100%;
-  padding: 8px 10px;
-  border: 1px solid #bdbdbd;
-  border-radius: 6px;
+  padding: 10px 12px;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
   font-size: 1rem;
-  margin-bottom: 8px;
+  margin-bottom: 0;
   box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background-color: #f8fafd;
 }
 
 input:focus,
 select:focus {
-  border: 1.5px solid #1976d2;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
   outline: none;
+  background-color: #ffffff;
 }
 
-/* Botões */
-button,
-input[type="submit"] {
-  border: none;
-  padding: 8px 20px;
-  background: #1976d2;
-  color: #fff;
+input[disabled],
+select[disabled] {
+  background-color: #e9ecef;
+  cursor: not-allowed;
 }
 
-button.secondary,
-.back-btn {
-  background: #757575;
-}
-
-button:hover,
-input[type="submit"]:hover {
-  background: #125ea2;
-}
-
-/* Espaçamento entre campos */
+/* Form group for spacing */
 .form-group {
-  margin-bottom: 12px;
+  margin-bottom: 15px;
 }
 
-/* Mensagens de erro */
+/* Error messages */
 .error-message {
-  color: #d32f2f;
-  font-size: 0.95em;
-  margin-top: -6px;
-  margin-bottom: 8px;
+  color: #dc3545;
+  font-size: 0.85em;
+  margin-top: 5px;
+}
+
+/* Angular Material Dialog specific styling adjustments */
+/* These will override default Material styles if needed, or simply ensure consistency */
+mat-dialog-title {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+mat-dialog-content {
+  padding: 20px 24px; /* Default Material padding, adjust if needed */
+}
+
+mat-dialog-actions {
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+  margin-top: 20px;
+}
+
+/* Ensure material buttons are styled as primary/secondary/success/danger if needed */
+/* Note: Material buttons use 'color' property (primary, accent, warn) not custom classes like btn-success */
+.mat-raised-button.mat-primary {
+  background-color: #007bff;
+  color: white;
+}
+.mat-raised-button.mat-primary:hover {
+  background-color: #0056b3;
+}
+
+.mat-raised-button.mat-warn {
+  background-color: #dc3545;
+  color: white;
+}
+.mat-raised-button.mat-warn:hover {
+  background-color: #c82333;
+}
+
+.mat-button { /* For regular buttons like "Cancelar" */
+  color: #6c757d;
+}
+.mat-button:hover {
+  background-color: rgba(0,0,0,0.04); /* Light hover effect */
 }

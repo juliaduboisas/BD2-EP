@@ -1,13 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Student, StudentService } from '../../../services/student.service';
 import { CommonModule } from '@angular/common';
+import { MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog'; // Add MatDialogModule
+import { MatButtonModule } from '@angular/material/button'; // Ensure MatButtonModule is imported
 
 @Component({
   selector: 'app-student-form',
   standalone: true,
-  imports: [RouterModule, CommonModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatDialogModule, // Add MatDialogModule for mat-dialog-title, content, actions
+    MatButtonModule // For mat-button in the dialog
+  ],
   templateUrl: './student-form.html',
   styleUrls: ['./student-form.css']
 })
@@ -19,8 +25,8 @@ export class StudentForm implements OnInit {
   constructor(
     private fb: FormBuilder,
     private studentService: StudentService,
-    private router: Router,
-    private route: ActivatedRoute
+    public dialogRef: MatDialogRef<StudentForm>, // Inject MatDialogRef
+    @Inject(MAT_DIALOG_DATA) public data: { student: Student | null; isEdit: boolean } // Inject data
   ) {
     this.studentForm = this.fb.group({
       cpf: ['', [Validators.required, Validators.pattern(/^\d{11}$/)]],
@@ -29,39 +35,27 @@ export class StudentForm implements OnInit {
       dataNasc: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]]
     });
+
+    this.isEditMode = data.isEdit; // Determine mode from injected data
+
+    if (this.isEditMode && data.student) {
+      this.currentCpf = data.student.cpf;
+      this.studentForm.patchValue(data.student);
+      this.studentForm.get('cpf')?.disable(); // CPF should be disabled when editing
+    }
   }
 
-  ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      this.currentCpf = params.get('cpf');
-      if (this.currentCpf) {
-        this.isEditMode = true;
-        this.studentForm.get('cpf')?.disable();
-        this.loadStudentData(this.currentCpf);
-      }
-    });
-  }
-
-  loadStudentData(cpf: string): void {
-    this.studentService.getStudentByCpf(cpf).subscribe({
-      next: student => {
-        this.studentForm.patchValue(student);
-      },
-      error: error => {
-        console.error('Erro ao carregar dados do aluno:', error);
-        alert('Erro ao carregar dados do aluno para edição.');
-      }
-    });
-  }
+  ngOnInit(): void {} // No need for route subscription here anymore
 
   onSubmit(): void {
     if (this.studentForm.valid) {
-      const studentData: Student = this.studentForm.getRawValue();
+      const studentData: Student = this.studentForm.getRawValue(); // Use getRawValue to get disabled fields
+
       if (this.isEditMode) {
         this.studentService.updateStudent(studentData).subscribe({
           next: () => {
             alert('Aluno atualizado com sucesso!');
-            this.router.navigate(['/students']);
+            this.dialogRef.close(true); // Close with true on success
           },
           error: error => {
             console.error('Erro ao atualizar aluno:', error);
@@ -72,7 +66,7 @@ export class StudentForm implements OnInit {
         this.studentService.addStudent(studentData).subscribe({
           next: () => {
             alert('Aluno adicionado com sucesso!');
-            this.router.navigate(['/students']);
+            this.dialogRef.close(true); // Close with true on success
           },
           error: error => {
             console.error('Erro ao adicionar aluno:', error);
@@ -86,6 +80,6 @@ export class StudentForm implements OnInit {
   }
 
   cancel(): void {
-    this.router.navigate(['/students']);
+    this.dialogRef.close(false); // Close with false on cancel
   }
 }

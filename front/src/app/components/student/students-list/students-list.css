@@ -1,95 +1,196 @@
+/* Container padding and responsive adjustments */
+.container {
+  padding: 24px;
+}
+
+@media (max-width: 768px) {
+  .table-responsive {
+    overflow-x: auto;
+  }
+}
+
 /* Table styles */
 .table {
-    width: 100%;
-	background: #fff;
-	border-spacing: 0;
-	margin-bottom: 16px;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .table th,
 .table td {
-	padding: 12px 20px;
-	border-bottom: 1px solid #e0e0e0;
-	text-align: left;
+  padding: 16px 20px;
+  text-align: left; /* Default left align for all */
+}
+
+/* Table header styles */
+.table thead {
+  background-color: #f8fafd;
 }
 
 .table th {
-	background: #f8f8f8;
+  font-weight: 600;
+  color: #555;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  border-bottom: 1px solid #e0e0e0;
 }
 
-.table tr:hover {
-	background: #f2f9ff;
+/* Specific styling for the first and last header cells for rounded corners */
+.table th:first-child {
+  border-top-left-radius: 8px;
+}
+
+.table th:last-child {
+  border-top-right-radius: 8px;
+}
+
+/* Table body row styles */
+.table tbody tr {
+  background-color: #ffffff;
+  transition: background-color 0.2s ease;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #fcfcfc;
+}
+
+.table tbody tr:hover {
+  background-color: #e6f7ff;
+}
+
+.table td {
+  border-bottom: 1px solid #f0f0f0;
+  color: #444;
+}
+
+/* Remove bottom border from the last row's cells */
+.table tbody tr:last-child td {
+  border-bottom: none;
 }
 
 /* Empty row */
 .table td[colspan] {
-	text-align: center;
-	color: #888;
-	font-style: italic;
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  padding: 20px;
 }
 
-/* Button styles */
+/* Alignment specific for the 'Ações' column and its content */
+.table th:last-child, /* Target the 'Ações' header */
+.table td.action-buttons { /* Target the cells with action buttons */
+  text-align: center; /* Center the column content */
+  white-space: nowrap; /* Keep buttons from wrapping */
+}
+
+.action-buttons {
+  display: flex; /* Use flexbox for button alignment */
+  gap: 5px; /* Consistent spacing between buttons */
+  justify-content: center; /* Center the buttons horizontally within the flex container */
+  align-items: center; /* Vertically align the buttons */
+  height: 100%; /* Ensure flex container takes full height of cell */
+}
+
+
+/* Button styles - General adjustments */
 .btn {
-	border: none;
-    padding: 8px 20px;
-	margin-right: 4px;
+  border: none;
+  padding: 10px 20px;
+  /* Removed margin-right from here as gap handles spacing in action-buttons */
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .btn-new {
-	background: #43a047;
-	color: #fff;
-	margin-bottom: 18px;
+  background-color: #007bff;
+  color: #fff;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
 }
 
 .btn-new:hover {
-	background: #388e3c;
+  background-color: #0056b3;
+  box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
 }
 
-.btn-info {
-	background: #ffb300;
-	color: #fff;
+/* Individual button styles, adjust colors as seen in the image */
+.action-buttons .btn {
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  box-shadow: none; /* Removed individual button shadow here as it might conflict with design */
+  border: 1px solid transparent; /* Add transparent border to prevent layout shift on hover */
 }
 
+/* Specific colors from the image for buttons */
+.btn-primary { /* "Ver Detalhes" button */
+  background-color: #007bff; /* Blue */
+  color: #fff;
+}
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-info { /* "Editar" button */
+  background-color: #20c997; /* Teal/greenish */
+  color: #fff;
+}
 .btn-info:hover {
-	background: #ffa000;
+  background-color: #17a67f;
 }
 
-.btn-danger {
-	background: #d32f2f;
-	color: #fff;
+.btn-danger { /* "Remover" button */
+  background-color: #dc3545; /* Red */
+  color: #fff;
 }
-
 .btn-danger:hover {
-	background: #b71c1c;
+  background-color: #c82333;
 }
 
-/* Pagination controls */
+
+/* Pagination controls (no changes needed for alignment here) */
 .pagination-controls {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
 }
 
-.pagination-controls button {
-    min-width: 36px;
-    padding: 6px 12px;
-    background: #fff;
-    color: #002088;
-    border: 1px solid #002088;
-    transition: background 0.2s, color 0.2s;
+.pagination-controls .pagination-btn {
+  min-width: 40px;
+  height: 40px;
+  padding: 0 12px;
+  background-color: #ffffff;
+  color: #007bff;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.pagination-controls button:not([disabled]):hover,
-.pagination-controls button.active {
-    background: #002088;
-    color: #fff;
-    border-color: #001068;
+.pagination-controls .pagination-btn:not([disabled]):hover,
+.pagination-controls .pagination-btn.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.2);
 }
 
-.pagination-controls button[disabled] {
-    background: #e0e0e0;
-    color: #888;
-    border-color: #e0e0e0;
-    cursor: not-allowed;
+.pagination-controls .pagination-btn[disabled] {
+  background-color: #f8f8f8;
+  color: #b0b0b0;
+  border-color: #ebebeb;
+  cursor: not-allowed;
+  box-shadow: none;
 }

@@ -19,7 +19,7 @@ public record DataFuncionario(String cpf, String nome, Genero genero, LocalDate 
             funcionario.getCep(),
             funcionario.getNumero(),
             funcionario.getComplemento(),
-            new DataAdministrativo(funcionario.getCpfAdm())
+            funcionario.getCpfAdm() != null ? new DataAdministrativo(funcionario.getCpfAdm()) : null
         );
     }
 }

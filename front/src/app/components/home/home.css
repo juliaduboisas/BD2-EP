@@ -1,0 +1,64 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* Spacing between sections */
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+  gap: 24px;
+}
+
+.summary-card {
+  text-align: center;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.summary-card h2 {
+  font-size: 1.4rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.metric-value {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #007bff; /* Primary color for metrics */
+  margin-bottom: 5px;
+}
+
+.metric-info {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.recent-activity {
+  list-style: none;
+}
+
+.recent-activity h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.recent-activity ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recent-activity li {
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+  color: #666;
+}
+
+.recent-activity li:last-child {
+  border-bottom: none;
+}

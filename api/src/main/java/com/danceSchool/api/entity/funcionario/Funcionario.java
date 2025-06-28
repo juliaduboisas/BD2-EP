@@ -28,6 +28,7 @@ public class Funcionario {
     @Column(name = "nome", length = 70)
     private String nome;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "genero", length = Integer.MAX_VALUE)
     private Genero genero;
 

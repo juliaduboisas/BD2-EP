@@ -1,7 +1,39 @@
-<div class="home">
-	<div class="page-header">
-		<img src="assets/icons/icon-home.png" alt="Ícone Home" class="icon">
-		<h1>/ Have Dreams</h1>
-	</div>
-	<p>Selecione um item para gerenciar</p>
+<div class="dashboard-container">
+  <div class="page-header">
+    <a routerLink="/"> <img src="assets/icons/icon-home.png" alt="Ícone Home" class="icon">
+      <h1>/ Dashboard</h1>
+    </a>
+  </div>
+
+  <div class="summary-cards">
+    <div class="card summary-card">
+      <h2>Total Alunos</h2>
+      <p class="metric-value">{{ totalStudents }}</p>
+      <p class="metric-info">Última atualização: Hoje</p>
+    </div>
+    <div class="card summary-card">
+      <h2>Modalidades Ativas</h2>
+      <p class="metric-value">{{ activeModalities }}</p>
+      <p class="metric-info">Disponíveis atualmente</p>
+    </div>
+    <div class="card summary-card">
+      <h2>Próximas Aulas</h2>
+      <p class="metric-value">{{ upcomingClasses }}</p>
+      <p class="metric-info">Total de turmas</p>
+    </div>
+    <div class="card summary-card">
+      <h2>Novas Inscrições</h2>
+      <p class="metric-value">{{ newRegistrations }}</p>
+      <p class="metric-info">Total de inscrições</p>
+    </div>
+  </div>
+
+  <div class="recent-activity card">
+    <h2>Atividade Recent</h2>
+    <ul>
+      <li>Aluno João Silva se inscreveu na aula de Ballet Clássico.</li>
+      <li>Turma de Jazz Básico iniciou hoje.</li>
+      <li>Sala 3 está reservada para ensaio de apresentação.</li>
+    </ul>
+  </div>
 </div>
